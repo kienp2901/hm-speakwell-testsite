@@ -1,0 +1,15 @@
+.draggable {
+  display: inline-block;
+  color: white;
+  padding: 9px 24px;
+  width: 60px;
+  cursor: grab;
+  background-color: #1D96EE;
+  border-radius: 10px;
+  text-align: center;
+}
+
+.dragging {
+  background-color: #f3fafd;
+  cursor: grabbing;
+}

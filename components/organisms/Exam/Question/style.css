@@ -1,0 +1,193 @@
+.question-table table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+.question-full figure.table {
+  margin: 4px auto;
+}
+
+.question-table figure.table td,
+.question-table figure.table th {
+  border: 1px solid #ccc !important;
+}
+.question-table th {
+  background-color: #b5c7d9;
+  color: #2f4e74;
+  text-align: center;
+  font-weight: 500;
+  font-size: 14px;
+}
+.question-table td {
+  background-color: white;
+}
+
+.question-table td p {
+  padding: 4px 12px;
+  text-align: left !important;
+}
+
+/* .question-table th:first-child {
+  border-top-left-radius: 16px;
+}
+.question-table th:last-child {
+  border-top-right-radius: 16px;
+}
+.question-table tr:last-child td:first-child {
+  border-bottom-left-radius: 16px;
+}
+.question-table tr:last-child td:last-child {
+  border-bottom-right-radius: 16px;
+} */
+
+.droptarget {
+  margin-left: 4px;
+  display: inline-block;
+  min-width: 132px;
+  height: 36px;
+  color: #000;
+  border-radius: 4px;
+  background-color: #b5c7d9;
+  overflow: hidden;
+}
+
+.droptarget p {
+  transform: translate(-4px, -7px);
+  font-style: normal;
+}
+
+.dragtarget {
+  background-color: #b5c7d9;
+  min-width: 132px;
+  display: inline-block;
+  color: #000;
+  padding: 6px 10px;
+  border-radius: 4px;
+  max-height: 36px;
+  margin-left: 4px;
+  margin-top: 4px;
+}
+.dragtarget p {
+  text-align: center;
+  z-index: -100 !important;
+}
+
+#answerDrag > span {
+  margin: 0px 8px 10px 0px;
+}
+
+.undefined > p {
+  line-height: 30px;
+}
+
+.question-drapdrop ul {
+  padding-top: 5px;
+}
+
+.question-drapdrop ul li {
+  padding-bottom: 5px;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 4px;
+}
+
+figure.table td,
+figure.table th {
+  border: 1px solid black !important;
+  text-align: left;
+  padding: 4px !important;
+  font-size: 14px;
+}
+
+.multi-yes-no th,
+.multi-yes-no td {
+  border: 1px solid black !important;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+}
+
+/* .multi-yes-no td {
+  border-top: 0 !important;
+  border-right: 0 !important;
+} */
+
+@media (min-width: 640px) {
+  figure.table td,
+  figure.table th {
+    padding: 5px 8px !important;
+    font-size: 16px;
+  }
+}
+
+.audioRecordContainer audio {
+  display: none;
+}
+
+/* Dropdown styling for fillblank inputs */
+.fillblank-dropdown {
+  position: fixed;
+  z-index: 50;
+  background-color: #fef3c7; /* Light yellow background */
+  border: 1px solid #f59e0b; /* Yellow border */
+  border-radius: 8px;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  padding: 16px;
+  max-width: 300px;
+  min-width: 250px;
+}
+
+.fillblank-dropdown .dropdown-title {
+  font-size: 14px;
+  font-weight: 500;
+  color: #374151;
+  margin-bottom: 8px;
+}
+
+.fillblank-dropdown .dropdown-subtitle {
+  font-size: 14px;
+  font-weight: 500;
+  color: #374151;
+  margin-bottom: 8px;
+}
+
+.fillblank-dropdown .dropdown-list {
+  list-style-type: disc;
+  list-style-position: inside;
+  margin: 0;
+  padding: 0;
+}
+
+.fillblank-dropdown .dropdown-list li {
+  font-size: 14px;
+  color: #6b7280;
+  margin-bottom: 4px;
+  padding-left: 0;
+}
+
+.fillblank-dropdown .dropdown-score {
+  font-size: 14px;
+  font-weight: 500;
+  color: #374151;
+  margin-top: 8px;
+}
+
+/* Fillblank container styling - chỉ áp dụng cho những input có sự kiện click */
+.fillblank-container {
+  cursor: pointer !important;
+  user-select: none;
+}
+
+.fillblank-container:hover {
+  background-color: rgba(0, 0, 0, 0.05);
+  border-radius: 4px;
+}
+
+/* Bỏ hover cho những input không có sự kiện click */
+.relative.inline-block:not(.fillblank-container) {
+  cursor: default;
+}
+
+.relative.inline-block:not(.fillblank-container):hover {
+  background-color: transparent;
+}

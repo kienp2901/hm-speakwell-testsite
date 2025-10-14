@@ -1,0 +1,49 @@
+.table-answer th {
+  border-width: 0 !important;
+  font-size: 16px !important;
+  font-weight: 500 !important;
+  color: black !important;
+  text-align: center !important;
+}
+.table-answer td {
+  border-width: 0 !important;
+  font-size: 16px !important;
+  text-align: center !important;
+}
+
+.your-answer span,
+.your-answer p {
+  color: #0067c5 !important;
+  text-align: start;
+}
+
+.key-answer span,
+.key-answer p {
+  color: #ff2323 !important;
+  text-align: start;
+}
+.text-true span,
+.text-true p {
+  color: #009521 !important;
+  text-align: start;
+}
+.text-fail-multi span,
+.text-fail-multi p {
+  color: #ff2323 !important;
+  text-align: start !important;
+}
+.text-fail span,
+.text-fail p {
+  color: #ff2323 !important;
+}
+
+.multi-key p::after {
+  /* content: ','; */
+}
+
+.score-explained ul,
+.advice-for-improvement ul {
+  list-style-type: disc !important;
+  text-align: justify;
+  padding-left: 16px;
+}

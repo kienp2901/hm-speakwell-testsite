@@ -1,0 +1,11 @@
+.responsive-mobile .gutter {
+  display: none !important;
+}
+
+.responsive-mobile #split-1 {
+  width: 100% !important;
+}
+
+.responsive-desktop #split-0 {
+  min-width: 200;
+}

@@ -1,0 +1,28 @@
+.board-question .MuiDrawer-paper {
+  width: 0;
+  display: none;
+  flex-shrink: 0;
+  position: fixed;
+  height: 100%;
+  overflow: hidden;
+}
+
+@media (min-width: 640px) {
+  .board-question .MuiDrawer-paper {
+    width: 195px;
+    display: block;
+  }
+}
+
+@media (min-width: 1024px) {
+  .board-question .MuiDrawer-paper {
+    width: 210px;
+  }
+}
+
+@media (min-width: 1280px) {
+  .board-question .MuiDrawer-paper {
+    width: 240px;
+  }
+}
+

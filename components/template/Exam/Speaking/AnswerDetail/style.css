@@ -1,0 +1,28 @@
+.custom-accordion {
+  box-shadow: none !important;
+  margin-top: 0 !important;
+}
+.custom-accordion .MuiAccordionSummary-gutters {
+  background-color: #e2ebf3;
+  min-height: 48px !important;
+  padding: 0 8px;
+}
+
+.custom-accordion::before {
+  height: 0 !important;
+  top: 0 !important;
+}
+
+.custom-accordion .MuiAccordionSummary-content {
+  margin: 0 !important;
+}
+
+.custom-accordion .MuiAccordionDetails-root {
+  padding: 0 !important;
+}
+
+@media (min-width: 640px) {
+  .custom-accordion .MuiAccordionSummary-gutters {
+    padding: 0 20px;
+  }
+}

@@ -1,0 +1,306 @@
+{
+    "sidebar": {
+        "myCourse": "Khoá học của tôi",
+        "dashboard": "Dashboard",
+        "learningStatistic": "Learning Statistic"
+    },
+    "header": {
+        "info": "Thông tin cá nhân",
+        "language": "Ngôn ngữ",
+        "logout": "Đăng xuất",
+        "setting": "Cài đặt",
+        "choseLanguage": "Chọn ngôn ngữ",
+        "vi": "Tiếng Việt",
+        "en": "Tiếng Anh",
+        "de": "Tiếng Đức",
+        "applyLanguage": "Ngôn ngữ sẽ được áp dụng cho toàn bộ ứng dụng"
+    },
+    "footer": {
+        "dashboard": "Dashboard",
+        "settings": "Settings",
+        "logout": "Logout"
+    },
+    "signin": {
+        "title": "Chào mừng đến với",
+        "login": "Đăng nhập ngay"
+    },
+    "loading": {
+        "loading": "Đang tải",
+        "waiting": "Vui lòng đợi",
+        "please_wait": "Vui lòng đợi trong giây lát",
+        "processing": "Đang xử lý",
+        "initializing": "Đang khởi tạo",
+        "connecting": "Đang kết nối"
+    },
+    "info_user": {
+        "title": "Cập nhật thông tin cá nhân",
+        "name": "Họ và tên",
+        "error_name": "Họ và tên không được để trống",
+        "phone": "Số điện thoại",
+        "error_phone": "Số điện thoại không hợp lệ",
+        "email": "Email",
+        "error_email": "Email không hợp lệ",
+        "gender": "Giới tính",
+        "male": "Nam",
+        "female": "Nữ",
+        "unknow": "Không xác định",
+        "birthday": "Ngày sinh",
+        "error_birthday": "Ngày sinh không được là ngày trong tương lai",
+        "placeholder_birthday": "Chọn ngày sinh",
+        "required": "Bắt buộc",
+        "update": "Hoàn thành",
+        "address": "Địa chỉ",
+        "success_update": "Cập nhật thông tin thành công",
+        "error_update": "Cập nhật thông tin thất bại"
+    },
+    "my_course": {
+        "title": "Khoá học của tôi",
+        "elementary": "Elementary",
+        "completed": "Đã hoàn thành",
+        "expiration_date": "Ngày hết hạn",
+        "activate_now": "Kích hoạt ngay",
+        "not_activated": "Chưa kích hoạt",
+        "no_course": "Bạn chưa có khoá học nào",
+        "register_now": "Đăng ký ngay",
+        "test_now": "Để kiểm tra trình độ hiện tại, Làm bài test đầu vào ngay!",
+        "lesson": "Bài giảng",
+        "quiz": "Bài kiểm tra",
+        "resource": "Tài nguyên",
+        "content": "Nội dung bài học",
+        "completed_content": "Nội dung hoàn thành",
+        "condition_to_complete": "Điều kiện cần hoàn thành",
+        "required_complete": "You must complete the following activities before you can access this activity:",
+        "activity": "Hoạt động",
+        "section": "Section",
+        "topic": "Topic"
+    },
+    "exam_library": {
+        "no_attempts_left": "Hết lượt làm bài",
+        "start_exam_now": "Làm bài ngay",
+        "recent_attempts_history": "Lịch sử làm bài 10 lần gần nhất",
+        "attempt": "Lần",
+        "submit_time": "Thời gian nộp",
+        "not_submitted": "Bạn chưa nộp bài này",
+        "review_exam": "Xem lại bài làm",
+        "continue_exam": "Làm tiếp",
+        "result": "Kết quả",
+        "passed": "Đạt",
+        "failed": "Chưa đạt",
+        "reading": "Reading",
+        "listening": "Listening",
+        "writing": "Writing",
+        "speaking": "Speaking"
+    },
+    "exercise": {
+        "finish_test_confirm": "Bạn có muốn kết thúc bài kiểm tra?",
+        "no_take_me_back": "Không, đưa tôi quay lại",
+        "yes_i_do": "Có, tôi muốn",
+        "no_permission": "Bạn không có quyền truy cập liên kết này.",
+        "back_to_homepage": "Về trang chủ",
+        "processing_result": "Đang xử lý kết quả...",
+        "test_name": "Tên bài test",
+        "general_info": "Thông tin chung",
+        "total_questions": "Tổng câu hỏi",
+        "questions": "câu",
+        "time_limit": "Thời gian làm bài",
+        "unlimited": "Không giới hạn",
+        "minutes": "phút",
+        "instructions": "Hướng dẫn",
+        "save_draft_instruction": "Ấn nút lưu bài làm để lưu nháp lại trạng thái làm bài",
+        "answer_all_questions": "Bạn trả lời tất cả các câu hỏi của tất cả các part trước khi ấn nộp bài",
+        "submit_to_finish": "Ấn nút nộp bài để kết thúc bài kiểm tra và nhận kết quả",
+        "start_test": "Làm bài",
+        "practice_test": "Bài luyện tập"
+    },
+    "beforeunload": {
+        "incomplete_questions": "Bạn chưa hoàn thành tất cả các câu hỏi. Bạn có muốn lưu",
+        "save_or_exit": "để tiếp tục trong lần thử tiếp theo hoặc thoát khỏi",
+        "practice": "bài luyện tập",
+        "exam": "bài thi",
+        "save": "Lưu",
+        "exit": "Thoát",
+        "answers_will_be_deleted": "Tất cả câu trả lời của bạn sẽ bị xóa.",
+        "do_you_want_to_exit": "Bạn có muốn thoát?",
+        "no_take_me_back": "Không, đưa tôi quay lại",
+        "yes_i_do": "Có, tôi muốn"
+    },
+    "result_modal_exercise": {
+        "test_result": "Kết quả làm bài",
+        "congratulations_completed": "Chúc mừng bạn đã hoàn thành bài luyện này!",
+        "sorry_not_completed": "Rất tiếc bạn chưa hoàn thành bài luyện này",
+        "keep_up_good_work": "Hãy tiếp tục phát huy nhé!",
+        "try_again_better": "Hãy thử lại để đạt kết quả cao hơn nhé",
+        "score_achieved": "Điểm đạt được",
+        "passed": "Đạt",
+        "failed": "Chưa đạt",
+        "review_exam": "Xem lại bài làm",
+        "back_to_course": "Về khóa học",
+        "practice_test": "Bài luyện tập"
+    },
+    "content_test": {
+        "question_palette": "Bảng câu hỏi"
+    },
+    "header_test": {
+        "submit": "Nộp bài",
+        "redo": "Làm lại",
+        "back": "Quay lại",
+        "exit": "Thoát",
+        "ai_grading_message": "Hệ thống AI đang trong quá trình chấm điểm; kết quả bài thi sẽ được gửi trong thời gian sớm nhất. Bạn có muốn tiếp tục?",
+        "back_to_homepage": "Về trang chủ",
+        "continue_waiting": "Tiếp tục chờ"
+    },
+    "modal_exit_pause": {
+        "incomplete_questions": "Bạn chưa hoàn thành tất cả các câu hỏi. Bạn có muốn lưu",
+        "save_or_exit": "để tiếp tục trong lần thử tiếp theo hoặc thoát khỏi",
+        "practice": "bài luyện tập",
+        "exam": "bài thi",
+        "save": "Lưu",
+        "exit": "Thoát"
+    },
+    "modal_exit": {
+        "answers_will_be_deleted": "Tất cả câu trả lời của bạn sẽ bị xóa.",
+        "do_you_want_to_exit": "Bạn có muốn thoát?",
+        "no_take_me_back": "Không, đưa tôi quay lại",
+        "yes_i_do": "Có, tôi muốn"
+    },
+    "board_question": {
+        "font_size": "Cỡ chữ",
+        "large": "Lớn",
+        "medium": "Vừa",
+        "small": "Nhỏ",
+        "highlight_tool": "Công cụ đánh dấu",
+        "no_highlight": "Không đánh dấu",
+        "eraser": "Tẩy",
+        "use_this_color": "Sử dụng màu này",
+        "comment": "Bình luận",
+        "review": "Xem lại",
+        "question_palette": "Bảng câu hỏi",
+        "unanswered": "chưa trả lời",
+        "answered": "đã trả lời",
+        "section": "Phần",
+        "instruction": "Hướng dẫn"
+    },
+    "board_question_mobile": {
+        "question_palette": "Bảng câu hỏi",
+        "unanswered": "chưa trả lời",
+        "answered": "đã trả lời",
+        "section": "Phần",
+        "review": "Xem lại"
+    },
+    "full_result_exam": {
+        "congratulations_completed": "Chúc mừng bạn đã hoàn thành bài thi, đây là kết quả của bạn",
+        "here_are_your_score": "Đây là điểm số của bạn",
+        "overall": "Tổng thể",
+        "waiting": "Đang chờ",
+        "passed": "Đạt",
+        "failed": "Chưa đạt",
+        "ielts_listening": "IELTS Listening",
+        "reading": "Reading",
+        "writing": "Writing",
+        "speaking": "Speaking",
+        "time": "Thời gian",
+        "view_details": "Xem chi tiết"
+    },
+    "exam_info": {
+        "time": "Thời gian",
+        "instructions_to_candidates": "Hướng dẫn cho thí sinh",
+        "information_for_candidates": "Thông tin cho thí sinh",
+        "about_exam_mode": "*Về chế độ thi:",
+        "instruction": "Hướng dẫn"
+    },
+    "listening_info": {
+        "title": "IELTS Listening",
+        "time": "Khoảng 30 phút",
+        "instruct_exam_1": "Trả lời tất cả các câu hỏi khi bạn nghe.",
+        "instruct_exam_2": "Bạn có thể thay đổi câu trả lời bất cứ lúc nào trong quá trình thi.",
+        "instruct_practice_1": "Trả lời tất cả các câu hỏi khi bạn nghe.",
+        "instruct_practice_2": "Bạn có thể thay đổi câu trả lời bất cứ lúc nào trong quá trình thi.",
+        "info_exam_1": "Có 04 phần trong bài thi, tổng cộng 40 câu hỏi.",
+        "info_exam_2": "Bạn chỉ có thể nghe MỘT LẦN.",
+        "info_exam_3": "Mỗi câu hỏi có một điểm.",
+        "info_exam_4": "Bạn sẽ KHÔNG bị mất điểm cho câu trả lời sai, vì vậy hãy cố gắng trả lời tất cả các câu hỏi.",
+        "info_exam_5": "Đối với mỗi phần của bài thi, sẽ có thời gian để bạn xem qua các câu hỏi và thời gian để kiểm tra câu trả lời của bạn.",
+        "info_exam_6": "Cuối bài thi, bạn sẽ có 02 phút để kiểm tra câu trả lời của bạn. Bạn có thể nộp bài sớm trong 02 phút này.",
+        "info_exam_7": "Nhấp 'Bắt đầu thi' khi bạn đã sẵn sàng.",
+        "info_practice_1": "Có 04 phần trong bài thi, tổng cộng 40 câu hỏi.",
+        "info_practice_2": "Mỗi câu hỏi có một điểm.",
+        "info_practice_3": "Bạn sẽ KHÔNG bị mất điểm cho câu trả lời sai, vì vậy hãy cố gắng trả lời tất cả các câu hỏi.",
+        "info_practice_4": "Đối với mỗi phần của bài thi, sẽ có thời gian để bạn xem qua các câu hỏi và thời gian để kiểm tra câu trả lời của bạn.",
+        "info_practice_5": "Bạn có thể phát lại hoặc bỏ qua bản ghi âm nghe tùy ý*.",
+        "info_practice_6": "Nếu bạn muốn di chuyển giữa các phần trong quá trình thi, hãy nhấp vào các số ở đầu màn hình (ví dụ: Nhấp vào biểu tượng \"4\" để đọc câu hỏi ở phần 4). Điều này sẽ không thay đổi bản ghi âm nghe.",
+        "info_practice_7": "Nếu bạn muốn bỏ qua bản ghi âm đến phần tiếp theo, hãy nhấp \"Phần tiếp theo\".*",
+        "info_practice_8": "Nếu bạn muốn quay lại bản ghi âm về phần trước, hãy nhấp \"Phần trước\".*",
+        "info_practice_9": "Cuối bài thi, bạn sẽ có 02 phút để kiểm tra câu trả lời của bạn.",
+        "info_practice_10": "Nhấp 'Bắt đầu thi' khi bạn đã sẵn sàng.",
+        "about_exam_1": "Bạn sẽ phải hoàn thành tất cả 04 phần của bài thi trong một lần ngồi, vì vậy hãy đảm bảo dành ra khoảng 03 giờ để làm bài thi.",
+        "about_exam_2": "Bạn sẽ phải đợi đến cuối bài thi nghe để chuyển sang bài thi đọc.",
+        "about_practice_1": "*Đây là tính năng bổ sung cho chế độ Luyện tập. Bạn chỉ có thể nghe MỘT LẦN trong bài thi thật."
+    },
+    "modal_warning": {
+        "mobile_version_message": "Phiên bản di động sẽ có một số tính năng bị thiếu, vui lòng sử dụng phiên bản PC để có trải nghiệm toàn diện hơn.",
+        "understand": "Hiểu rồi"
+    },
+    "test_sound": {
+        "check_your_device": "Kiểm tra thiết bị của bạn",
+        "test_sound": "Kiểm tra âm thanh",
+        "instruction": "Đeo tai nghe và nhấp vào nút Phát âm thanh để phát âm thanh mẫu.",
+        "play_sound": "Phát âm thanh"
+    },
+    "scores": {
+        "correct_answers": "Câu trả lời đúng",
+        "ielts_score": "Điểm IELTS"
+    },
+    "more_info": {
+        "advice_for_improvement": "Lời khuyên để cải thiện",
+        "review": "Xem lại"
+    },
+    "close": "Đóng",
+    "activity_viewer": {
+        "loading": {
+            "content": "Đang tải nội dung...",
+            "video": "Đang tải video...",
+            "file": "Đang tải file...",
+            "course_content": "Đang tải nội dung khóa học...",
+            "starting_video": "Đang khởi động video...",
+            "general": "Đang tải..."
+        },
+        "video": {
+            "not_available": "Video hiện không khả dụng",
+            "try_again_later": "Vui lòng thử lại sau",
+            "try_again": "Thử lại",
+            "browser_not_supported": "Trình duyệt của bạn không hỗ trợ video",
+            "audio_not_supported": "Trình duyệt của bạn không hỗ trợ audio",
+            "paused": "Video đã bị tạm dừng",
+            "expired": "Video đã hết hạn, bạn có muốn tiếp tục xem không?",
+            "continue_from_stop": "Bạn có muốn tiếp tục xem từ vị trí đã dừng không?",
+            "continue_watching": "Tiếp tục xem",
+            "watch_from_beginning": "Xem lại từ đầu",
+            "no_valid_path": "Video này hiện tại không có đường dẫn hợp lệ"
+        },
+        "resource": {
+            "document": "Tài liệu",
+            "description": "Mô tả",
+            "attached_files": "Tài liệu đính kèm",
+            "upload_date": "Ngày tải lên",
+            "view_file": "Xem file",
+            "no_documents": "Chưa có tài liệu",
+            "no_documents_description": "Hiện tại chưa có tài liệu nào được đính kèm",
+            "cannot_preview": "Không thể xem trước file này",
+            "download_to_view": "Vui lòng tải xuống để xem",
+            "download": "Tải xuống"
+        },
+        "url": {
+            "external_link": "Liên kết ngoài",
+            "url_address": "Địa chỉ URL",
+            "domain": "Tên miền",
+            "open_link": "Mở liên kết",
+            "copy_url": "Sao chép URL",
+            "copied": "Đã sao chép!"
+        },
+        "common": {
+            "back": "Quay lại",
+            "no_content": "Không có nội dung",
+            "content_not_supported": "Loại nội dung này chưa được hỗ trợ"
+        }
+    }
+}

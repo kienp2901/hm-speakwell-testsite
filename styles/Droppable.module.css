@@ -1,0 +1,26 @@
+.droppable {
+  border: 1px solid #999999;
+  width: 60px;
+  padding: 12px 16px;
+  border-radius: 10px;
+}
+.droppableAnswer {
+  width: 100%;
+  padding: 12px 16px;
+  border-radius: 10px;
+}
+.answer_dropable {
+  padding: 0px;
+  height: 40px;
+}
+.over {
+  background-color: #ebffd4;
+}
+
+.can {
+  background-color: #f7ffee;
+}
+
+.big {
+  height: 70%;
+}

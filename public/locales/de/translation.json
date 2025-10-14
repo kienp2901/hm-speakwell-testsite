@@ -1,0 +1,254 @@
+{
+    "sidebar": {
+        "myCourse": "Meine Kurse",
+        "dashboard": "Dashboard",
+        "learningStatistic": "Lernstatistik"
+    },
+    "header": {
+        "info": "Persönliche Informationen",
+        "language": "Sprache",
+        "logout": "Abmelden",
+        "setting": "Einstellungen",
+        "choseLanguage": "Sprache wählen",
+        "vi": "Vietnamesisch",
+        "en": "Englisch",
+        "de": "Deutsch",
+        "applyLanguage": "Die Sprache wird für die gesamte Anwendung angewendet"
+    },
+    "footer": {
+        "dashboard": "Dashboard",
+        "settings": "Einstellungen",
+        "logout": "Abmelden"
+    },
+    "signin": {
+        "title": "Willkommen bei",
+        "login": "Jetzt anmelden"
+    },
+    "loading": {
+        "loading": "Laden",
+        "waiting": "Bitte warten"
+    },
+    "info_user": {
+        "title": "Persönliche Informationen aktualisieren",
+        "name": "Vollständiger Name",
+        "error_name": "Vollständiger Name darf nicht leer sein",
+        "phone": "Telefonnummer",
+        "error_phone": "Ungültige Telefonnummer",
+        "email": "E-Mail",
+        "error_email": "Ungültige E-Mail",
+        "gender": "Geschlecht",
+        "male": "Männlich",
+        "female": "Weiblich",
+        "unknow": "Unbekannt",
+        "birthday": "Geburtsdatum",
+        "error_birthday": "Geburtsdatum darf nicht in der Zukunft liegen",
+        "placeholder_birthday": "Geburtsdatum auswählen",
+        "required": "Erforderlich",
+        "update": "Abschließen",
+        "address": "Adresse",
+        "success_update": "Informationen erfolgreich aktualisiert",
+        "error_update": "Fehler beim Aktualisieren der Informationen"
+    },
+    "my_course": {
+        "title": "Meine Kurse",
+        "elementary": "Elementar",
+        "completed": "Abgeschlossen",
+        "expiration_date": "Ablaufdatum",
+        "activate_now": "Jetzt aktivieren",
+        "not_activated": "Nicht aktiviert",
+        "no_course": "Sie haben noch keine Kurse",
+        "register_now": "Jetzt registrieren",
+        "test_now": "Um Ihr aktuelles Niveau zu testen, machen Sie jetzt den Eingangstest!",
+        "lesson": "Lektion",
+        "quiz": "Quiz",
+        "resource": "Ressource",
+        "content": "Lektionsinhalt",
+        "completed_content": "Abgeschlossener Inhalt",
+        "condition_to_complete": "Bedingungen zum Abschließen",
+        "required_complete": "Sie müssen die folgenden Aktivitäten abschließen, bevor Sie auf diese Aktivität zugreifen können:",
+        "activity": "Aktivität",
+        "section": "Abschnitt",
+        "topic": "Thema"
+    },
+    "exam_library": {
+        "no_attempts_left": "Keine Versuche mehr übrig",
+        "start_exam_now": "Prüfung jetzt starten",
+        "recent_attempts_history": "Geschichte der letzten 10 Versuche",
+        "attempt": "Versuch",
+        "submit_time": "Abgabezeit",
+        "not_submitted": "Sie haben diese Prüfung noch nicht abgegeben",
+        "review_exam": "Prüfung überprüfen",
+        "continue_exam": "Fortsetzen",
+        "result": "Ergebnis",
+        "passed": "Bestanden",
+        "failed": "Nicht bestanden",
+        "reading": "Lesen",
+        "listening": "Hören",
+        "writing": "Schreiben",
+        "speaking": "Sprechen"
+    },
+    "exercise": {
+        "finish_test_confirm": "Möchten Sie den Test beenden?",
+        "no_take_me_back": "Nein, bring mich zurück",
+        "yes_i_do": "Ja, ich möchte",
+        "no_permission": "Sie haben keine Berechtigung, auf diesen Link zuzugreifen.",
+        "back_to_homepage": "Zurück zur Startseite",
+        "processing_result": "Ergebnis wird verarbeitet...",
+        "test_name": "Testname",
+        "general_info": "Allgemeine Informationen",
+        "total_questions": "Gesamtfragen",
+        "questions": "Fragen",
+        "time_limit": "Zeitlimit",
+        "unlimited": "Unbegrenzt",
+        "minutes": "Minuten",
+        "instructions": "Anweisungen",
+        "save_draft_instruction": "Drücken Sie die Speichern-Taste, um Ihren Entwurf und aktuellen Fortschritt zu speichern",
+        "answer_all_questions": "Beantworten Sie alle Fragen aus allen Teilen, bevor Sie einreichen",
+        "submit_to_finish": "Drücken Sie die Einreichen-Taste, um den Test zu beenden und Ergebnisse zu erhalten",
+        "start_test": "Test starten",
+        "practice_test": "Übungstest"
+    },
+    "beforeunload": {
+        "incomplete_questions": "Sie haben nicht alle Fragen beantwortet. Möchten Sie die",
+        "save_or_exit": "speichern, um beim nächsten Versuch fortzufahren oder die",
+        "practice": "Übung",
+        "exam": "Prüfung",
+        "save": "Speichern Sie die",
+        "exit": "Beenden Sie die",
+        "answers_will_be_deleted": "Alle Ihre Antworten werden gelöscht.",
+        "do_you_want_to_exit": "Möchten Sie beenden?",
+        "no_take_me_back": "Nein, bring mich zurück",
+        "yes_i_do": "Ja, ich möchte"
+    },
+    "result_modal_exercise": {
+        "test_result": "Testergebnis",
+        "congratulations_completed": "Herzlichen Glückwunsch! Sie haben diese Übung abgeschlossen!",
+        "sorry_not_completed": "Entschuldigung, Sie haben diese Übung noch nicht abgeschlossen",
+        "keep_up_good_work": "Machen Sie weiter so!",
+        "try_again_better": "Versuchen Sie es erneut, um bessere Ergebnisse zu erzielen",
+        "score_achieved": "Erreichte Punktzahl",
+        "passed": "Bestanden",
+        "failed": "Nicht bestanden",
+        "review_exam": "Prüfung überprüfen",
+        "back_to_course": "Zurück zum Kurs",
+        "practice_test": "Übungstest"
+    },
+    "content_test": {
+        "question_palette": "Fragenpalette"
+    },
+    "header_test": {
+        "submit": "Einreichen",
+        "redo": "Wiederholen",
+        "back": "Zurück",
+        "exit": "Beenden",
+        "ai_grading_message": "Das KI-System befindet sich derzeit im Bewertungsprozess; die Testergebnisse werden in Kürze gesendet. Möchten Sie fortfahren?",
+        "back_to_homepage": "Zurück zur Startseite",
+        "continue_waiting": "Weiter warten"
+    },
+    "modal_exit_pause": {
+        "incomplete_questions": "Sie haben nicht alle Fragen beantwortet. Möchten Sie die",
+        "save_or_exit": "speichern, um beim nächsten Versuch fortzufahren, oder die",
+        "practice": "Übung",
+        "exam": "Prüfung",
+        "save": "Speichern Sie die",
+        "exit": "Beenden Sie die"
+    },
+    "modal_exit": {
+        "answers_will_be_deleted": "Alle Ihre Antworten werden gelöscht.",
+        "do_you_want_to_exit": "Möchten Sie beenden?",
+        "no_take_me_back": "Nein, bring mich zurück",
+        "yes_i_do": "Ja, ich möchte"
+    },
+    "board_question": {
+        "font_size": "Schriftgröße",
+        "large": "Groß",
+        "medium": "Mittel",
+        "small": "Klein",
+        "highlight_tool": "Hervorhebungswerkzeug",
+        "no_highlight": "Keine Hervorhebung",
+        "eraser": "Radiergummi",
+        "use_this_color": "Diese Farbe verwenden",
+        "comment": "Kommentar",
+        "review": "Überprüfen",
+        "question_palette": "Fragenpalette",
+        "unanswered": "unbeantwortet",
+        "answered": "beantwortet",
+        "section": "Abschnitt",
+        "instruction": "Anweisung"
+    },
+    "board_question_mobile": {
+        "question_palette": "Fragenpalette",
+        "unanswered": "unbeantwortet",
+        "answered": "beantwortet",
+        "section": "Abschnitt",
+        "review": "Überprüfen"
+    },
+    "full_result_exam": {
+        "congratulations_completed": "Herzlichen Glückwunsch zum Abschluss des Tests, hier sind Ihre Ergebnisse",
+        "here_are_your_score": "Hier ist Ihre Punktzahl",
+        "overall": "Gesamt",
+        "waiting": "Warten",
+        "passed": "Bestanden",
+        "failed": "Nicht bestanden",
+        "ielts_listening": "IELTS Listening",
+        "reading": "Reading",
+        "writing": "Writing",
+        "speaking": "Speaking",
+        "time": "Zeit",
+        "view_details": "Details anzeigen"
+    },
+    "exam_info": {
+        "time": "Zeit",
+        "instructions_to_candidates": "Anweisungen für Kandidaten",
+        "information_for_candidates": "Informationen für Kandidaten",
+        "about_exam_mode": "*Über Prüfungsmodus:",
+        "instruction": "Anweisung"
+    },
+    "listening_info": {
+        "title": "IELTS Listening",
+        "time": "Etwa 30 Minuten",
+        "instruct_exam_1": "Beantworten Sie alle Fragen, während Sie zuhören.",
+        "instruct_exam_2": "Sie können Ihre Antworten jederzeit während des Tests ändern.",
+        "instruct_practice_1": "Beantworten Sie alle Fragen, während Sie zuhören.",
+        "instruct_practice_2": "Sie können Ihre Antworten jederzeit während des Tests ändern.",
+        "info_exam_1": "Es gibt 04 Teile des Tests mit insgesamt 40 Fragen.",
+        "info_exam_2": "Sie können nur EINMAL zuhören.",
+        "info_exam_3": "Jede Frage zählt einen Punkt.",
+        "info_exam_4": "Sie verlieren KEINE Punkte für falsche Antworten, versuchen Sie also, alle Fragen zu beantworten.",
+        "info_exam_5": "Für jeden Teil des Tests gibt es Zeit, um die Fragen durchzugehen und Zeit, um Ihre Antworten zu überprüfen.",
+        "info_exam_6": "Am Ende des Tests haben Sie 02 Minuten Zeit, um Ihre Antworten zu überprüfen. Sie können während dieser 02 Minuten früh einreichen.",
+        "info_exam_7": "Klicken Sie 'Test starten', wenn Sie bereit sind.",
+        "info_practice_1": "Es gibt 04 Teile des Tests mit insgesamt 40 Fragen.",
+        "info_practice_2": "Jede Frage zählt einen Punkt.",
+        "info_practice_3": "Sie verlieren KEINE Punkte für falsche Antworten, versuchen Sie also, alle Fragen zu beantworten.",
+        "info_practice_4": "Für jeden Teil des Tests gibt es Zeit, um die Fragen durchzugehen und Zeit, um Ihre Antworten zu überprüfen.",
+        "info_practice_5": "Sie können die Höraufnahme nach Belieben wiederholen oder überspringen*.",
+        "info_practice_6": "Wenn Sie zwischen den Teilen während des Tests wechseln möchten, klicken Sie auf die Zahlen oben auf dem Bildschirm (z.B. Klicken Sie auf das Symbol \"4\", um Fragen in Teil 4 zu lesen). Dies ändert die Höraufnahme nicht.",
+        "info_practice_7": "Wenn Sie die Aufnahme zum nächsten Teil überspringen möchten, klicken Sie \"Nächster Teil\".*",
+        "info_practice_8": "Wenn Sie die Aufnahme zum vorherigen Teil zurückspulen möchten, klicken Sie \"Vorheriger Teil\".*",
+        "info_practice_9": "Am Ende des Tests haben Sie 02 Minuten Zeit, um Ihre Antworten zu überprüfen.",
+        "info_practice_10": "Klicken Sie 'Test starten', wenn Sie bereit sind.",
+        "about_exam_1": "Sie müssen alle 04 Teile des Tests in einem Durchgang absolvieren, stellen Sie also sicher, dass Sie etwa 03 Stunden für den Test einplanen.",
+        "about_exam_2": "Sie müssen bis zum Ende des Hörverständnistests warten, um zum Lesetest zu wechseln.",
+        "about_practice_1": "*Dies ist eine zusätzliche Funktion für den Übungsmodus. Im echten Test können Sie nur EINMAL zuhören."
+    },
+    "modal_warning": {
+        "mobile_version_message": "Die mobile Version wird einige fehlende Funktionen haben, bitte verwenden Sie die PC-Version für eine umfassendere Erfahrung.",
+        "understand": "Verstanden"
+    },
+    "test_sound": {
+        "check_your_device": "Überprüfen Sie Ihr Gerät",
+        "test_sound": "Ton testen",
+        "instruction": "Setzen Sie Ihre Kopfhörer auf und klicken Sie auf die Schaltfläche Ton abspielen, um einen Beispielton abzuspielen.",
+        "play_sound": "Ton abspielen"
+    },
+    "scores": {
+        "correct_answers": "Richtige Antworten",
+        "ielts_score": "IELTS-Punktzahl"
+    },
+    "more_info": {
+        "advice_for_improvement": "Ratschläge zur Verbesserung",
+        "review": "Überprüfen"
+    },
+    "close": "Schließen"
+}

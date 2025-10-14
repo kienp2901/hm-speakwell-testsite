@@ -1,0 +1,31 @@
+.droptarget {
+  display: inline-block;
+  width: 50px !important;
+  min-width: 50px;
+  height: 37px;
+  border: 1px solid #8e8e8e;
+  color: #000;
+  position: relative;
+  border-radius: 8px;
+  top: 10px;
+}
+
+.dragtarget {
+  display: inline-block;
+  padding: 5px 10px;
+  width: 50px;
+  height: 37px;
+  border-radius: 8px;
+  color: #000;
+  border: 2px solid #e2e2e2;
+  position: relative;
+  top: -13px;
+}
+
+#answerDrag > span {
+  margin: 0px 8px 10px 0px;
+}
+
+.undefined > p {
+  line-height: 30px;
+}

@@ -1,0 +1,112 @@
+thead tr th {
+  /* padding-right: 0 !important; */
+  position: relative;
+}
+thead.divider-custom-th tr th::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  right: 0;
+  border-right: 1px solid #b5c7d9 !important;
+}
+
+thead.divider-custom-th tr th:last-child::after {
+  content: '';
+  position: absolute;
+  height: 0;
+}
+
+tbody tr td {
+  padding: 0 !important;
+  padding-top: 8px !important;
+  border: 0 !important;
+}
+
+tbody tr .bg-row {
+  background-color: #e5f3ff;
+}
+
+tbody.bg-odd tr:nth-child(odd) .bg-row {
+  background-color: #e5f3ff;
+}
+tbody.bg-odd tr:nth-child(even) .bg-row {
+  background-color: #fff;
+}
+tbody tr td .divider-custom {
+  position: relative;
+}
+/* tbody tr:first-child td {
+  padding-top: 18px !important;
+} */
+tbody tr td:first-child .item-border {
+  border-radius: 8px 0 0 8px !important;
+}
+
+tbody tr td:last-child .item-border {
+  border-radius: 0 8px 8px 0 !important;
+}
+
+tbody tr td .divider-custom::before {
+  content: '';
+  display: block;
+  height: calc(100% - 20px);
+  width: 1px;
+  position: absolute;
+  top: 45%;
+  background: #b5c7d9;
+  transform: translateY(-45%);
+}
+
+/* tbody tr:first-child td .divider-custom::before {
+  content: '';
+  display: block;
+  height: 70%;
+  width: 1px;
+  position: absolute;
+  top: 50%;
+  background: #b5c7d9;
+  transform: translateY(-40%);
+} */
+
+tbody tr td:first-child .divider-custom::before {
+  content: '';
+  height: 0;
+  width: 0;
+}
+
+.question_table table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+.question_table figure.table {
+  margin: 4px auto;
+}
+
+.question_table figure.table td,
+.question_table figure.table th {
+  border: 1px solid #ccc !important;
+}
+.question_table th {
+  background-color: #b5c7d9;
+  color: #2f4e74;
+  text-align: center;
+  font-weight: 500;
+  font-size: 14px;
+}
+.question_table td {
+  background-color: white;
+}
+
+.question_table td p {
+  padding: 4px 12px;
+  text-align: left !important;
+}
+
+figure.table td,
+figure.table th {
+  border: 1px solid black !important;
+  text-align: left;
+  padding: 5px 8px !important;
+}

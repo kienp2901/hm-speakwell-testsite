@@ -1,0 +1,8 @@
+.question-done {
+  color: white;
+  background-color: #0067c5;
+}
+.question-not-done {
+  color: #2f4e74;
+  background-color: #e2ebf3;
+}

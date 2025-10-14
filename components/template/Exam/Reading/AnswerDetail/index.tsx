@@ -1,0 +1,541 @@
+/* eslint-disable prefer-const */
+import { Drawer, Pagination } from '@mantine/core';
+import ContentTestLayout from '@/components/Layouts/ContentTest';
+import MySlpit from '@/components/Layouts/SplitLayout';
+import AnswerDragDrop from '@/components/organisms/Exam/AnswerQuestion/AnswerDragDrop';
+import DropDown from '@/components/organisms/Exam/Question/DropDown';
+import FillBlank from '@/components/organisms/Exam/Question/FillBlank';
+import MultiChoiceMultiRight from '@/components/organisms/Exam/Question/MultiChoiceMultiRight';
+import MultiChoiceOneRight from '@/components/organisms/Exam/Question/MultiChoiceOneRight';
+import Button from '@/components/sharedV2/Button';
+import { TestType, questionEnumType } from '@/enum';
+import { DocumentText } from 'iconsax-react';
+import { useEffect, useRef, useState } from 'react';
+import { shallowEqual, useDispatch, useSelector } from 'react-redux';
+import { useRouter } from 'next/router';
+import { getHistoryDetail, getHistoryPartDetail } from '@/service/api/examConfig';
+import { CursorCustom, FontSize } from '@/store/selector';
+import { setCursorCustom, setFontSize } from '@/store/slice/examInfo';
+import {
+  captureClick,
+  getCursorClass,
+  getFontSize,
+  highlightRange,
+} from '@/utils';
+
+const AnswerDetail = () => {
+  const router = useRouter();
+  const params = router.query;
+  const { idHistory } = params;
+  const fontSize = useSelector(FontSize, shallowEqual) || 16;
+  const cursorCustom = useSelector(CursorCustom, shallowEqual) || 0;
+
+  const [page, setPage] = useState(1);
+  const [listDataResult, setListDataResult] = useState<any[]>([]);
+  const [metadata, setMetadata] = useState<any>();
+  const [listGraded, setListGraded] = useState<any>([]);
+  const [listQuestion, setListQuestion] = useState<any>([]);
+  const [redoStatus, setRedoStatus] = useState(true);
+  const [countComment, setCountComment] = useState<number>(1);
+  const [isDrawerRead, setIsDrawerRead] = useState<boolean>(false);
+  const [isScrollMobile, setIsScrollMobile] = useState<boolean>(false);
+  const [isReadHere, setIsReadHere] = useState<boolean>(true);
+
+  const dispatch = useDispatch();
+  
+  const pathname = router.asPath;
+
+  const leftRef = useRef<any>();
+  const rightRef = useRef<any>();
+
+  const getHistoryExam = async (idHistory: string) => {
+    const response = await getHistoryDetail(idHistory);
+    if (response.status === 200) {
+      const index = response?.data?.data?.rounds?.findIndex(
+        (item: any) => item.test_format === TestType.Reading,
+      );
+      setMetadata(response?.data?.data?.rounds[index]);
+      setListGraded(response?.data?.data?.rounds[index].listQuestionGraded);
+      setListQuestion(response?.data?.data?.rounds[index].listQuestion);
+      setRedoStatus(response?.data?.data?.redo_status);
+    }
+  };
+
+  const getHistoryPart = async (idHistory: string) => {
+    const response = await getHistoryDetail(idHistory);
+    if (response.status === 200) {
+      setListGraded(response?.data?.data?.listQuestionGraded);
+      setListQuestion(response?.data?.data?.listQuestion);
+    }
+  };
+
+  const getContentQuestion = (itemQues: any, numberPage: number) => {
+    let listItemQuestion: any = [];
+    itemQues?.listQuestionChildren.map((item: any, index: any) => {
+      let itemQuestion: any = <></>;
+      switch (item.quiz_type) {
+        case questionEnumType.ONE_RIGHT:
+          itemQuestion = (
+            <MultiChoiceOneRight
+              question={item}
+              indexQuestion={index}
+              key={index}
+              type="answer-detail"
+              page={numberPage}
+              data={listQuestion}
+              listDataResult={listDataResult}
+            />
+          );
+          break;
+        case questionEnumType.MULTIPLE_RIGHT:
+          itemQuestion = (
+            <MultiChoiceMultiRight
+              type="answer-detail"
+              question={item}
+              indexQuestion={index}
+              key={index}
+              data={listQuestion}
+              page={numberPage}
+              listDataResult={listDataResult}
+            />
+          );
+          break;
+        case questionEnumType.FILL_BLANK:
+          itemQuestion = (
+            <FillBlank
+              key={index}
+              indexQuestion={index}
+              question={item}
+              type="answer-detail"
+              page={numberPage}
+              data={listQuestion}
+              listDataResult={listDataResult}
+            />
+          );
+          break;
+        case questionEnumType.DROPDOWN:
+          itemQuestion = (
+            <DropDown
+              key={index}
+              indexQuestion={index}
+              question={item}
+              type="answer-detail"
+              page={numberPage}
+              data={listQuestion}
+              listDataResult={listDataResult}
+            />
+          );
+          break;
+        case questionEnumType.DRAG_DROP:
+          itemQuestion = (
+            <AnswerDragDrop
+              type="answer-detail"
+              key={index}
+              indexQuestion={index}
+              question={item}
+              page={numberPage}
+              data={listQuestion}
+              listDataResult={listDataResult}
+            />
+          );
+          break;
+        default:
+          break;
+      }
+
+      listItemQuestion.push(itemQuestion);
+    });
+    return listItemQuestion;
+  };
+
+  const onMouseUp = (e: any) => {
+    if (e.button == 0) {
+      const s = window.getSelection()?.toString();
+      const userSelection = window.getSelection()?.getRangeAt(0);
+      if (s === '') {
+        return;
+      }
+      setCountComment((prev: number) => prev + 1);
+      highlightRange(userSelection, cursorCustom, dispatch, countComment);
+      document.addEventListener('click', captureClick, true);
+    }
+  };
+
+  const onScroll = (e: any) => {
+    setIsReadHere(true);
+    if (e?.target?.scrollTop > 0) {
+      setIsScrollMobile(true);
+    } else {
+      setIsScrollMobile(false);
+    }
+  };
+
+  useEffect(() => {
+    let timerScroll: any;
+    if (isScrollMobile) {
+      clearTimeout(timerScroll);
+      timerScroll = setTimeout(() => {
+        setIsScrollMobile(false);
+        setIsReadHere(false);
+      }, 3000);
+    } else {
+      clearTimeout(timerScroll);
+    }
+    return () => {
+      clearTimeout(timerScroll);
+    };
+  }, [isScrollMobile]);
+
+  useEffect(() => {
+    if (pathname.includes('/exam')) getHistoryPart(`${idHistory}`);
+    else getHistoryExam(`${idHistory}`);
+  }, [idHistory]);
+
+  useEffect(() => {
+    let arrDataResult: any[] = [];
+    listGraded?.map((item: any) => {
+      item.userAnswer.map((i: any) => {
+        if (i.answer[0]?.idChildQuestion) {
+          arrDataResult = [...arrDataResult, ...i.answer];
+        } else {
+          arrDataResult.push(i);
+        }
+      });
+    });
+    arrDataResult = arrDataResult.filter((it: any) => it.answer !== '');
+    setListDataResult(arrDataResult);
+  }, [listGraded]);
+
+  // useEffect(() => {
+  //   if (listQuestion.length > 0) {
+  //     let listItemQuestion: any = [];
+  //     listQuestion[page - 1]?.listQuestionChildren.map(
+  //       (item: any, index: any) => {
+  //         let itemQuestion: any = <></>;
+  //         switch (item.quiz_type) {
+  //           case questionEnumType.ONE_RIGHT:
+  //             itemQuestion = (
+  //               <MultiChoiceOneRight
+  //                 question={item}
+  //                 indexQuestion={index}
+  //                 key={index}
+  //                 type="answer-detail"
+  //                 page={page}
+  //                 data={listQuestion}
+  //                 listDataResult={listDataResult}
+  //               />
+  //             );
+  //             break;
+  //           case questionEnumType.MULTIPLE_RIGHT:
+  //             itemQuestion = (
+  //               <MultiChoiceMultiRight
+  //                 type="answer-detail"
+  //                 question={item}
+  //                 indexQuestion={index}
+  //                 key={index}
+  //                 data={listQuestion}
+  //                 page={page}
+  //                 listDataResult={listDataResult}
+  //               />
+  //             );
+  //             break;
+  //           case questionEnumType.FILL_BLANK:
+  //             itemQuestion = (
+  //               <FillBlank
+  //                 key={index}
+  //                 indexQuestion={index}
+  //                 question={item}
+  //                 type="answer-detail"
+  //                 page={page}
+  //                 data={listQuestion}
+  //                 listDataResult={listDataResult}
+  //               />
+  //             );
+  //             break;
+  //           case questionEnumType.DROPDOWN:
+  //             itemQuestion = (
+  //               <DropDown
+  //                 key={index}
+  //                 indexQuestion={index}
+  //                 question={item}
+  //                 type="answer-detail"
+  //                 page={page}
+  //                 data={listQuestion}
+  //                 listDataResult={listDataResult}
+  //               />
+  //             );
+  //             break;
+  //           case questionEnumType.DRAG_DROP:
+  //             itemQuestion = (
+  //               <AnswerDragDrop
+  //                 type="answer-detail"
+  //                 key={index}
+  //                 indexQuestion={index}
+  //                 question={item}
+  //                 page={page}
+  //                 data={listQuestion}
+  //                 listDataResult={listDataResult}
+  //               />
+  //             );
+  //             break;
+  //           default:
+  //             break;
+  //         }
+
+  //         listItemQuestion.push(itemQuestion);
+  //       },
+  //     );
+  //     setContentQuestion(listItemQuestion);
+  //   }
+  // }, [listQuestion]);
+
+  useEffect(() => {
+    dispatch(setCursorCustom(0));
+    dispatch(setFontSize(16));
+
+    document.addEventListener('contextmenu', event => {
+      event.preventDefault();
+    });
+
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (
+        (e.ctrlKey || e.metaKey) &&
+        (e.keyCode === 65 || //key a
+          e.keyCode === 67 || //key c
+          e.keyCode === 70 || //key f
+          e.keyCode === 80 || //key p
+          e.keyCode === 82 || //key r
+          e.keyCode === 83 || //key s
+          e.keyCode === 86 || //key v
+          e.keyCode === 117) //key F6
+      ) {
+        e.preventDefault();
+      }
+    };
+    document.addEventListener('keydown', handleKeyDown);
+    return () => {
+      document.removeEventListener('keydown', handleKeyDown);
+      window.removeEventListener('contextmenu', event => {
+        event.preventDefault();
+      });
+    };
+  }, []);
+
+  const headerContent = () => {
+    return (
+      <div className="flex items-center space-x-2 sm:space-x-4 text-ct-primary-500">
+        <span>{'Passage'}</span>
+        <Pagination
+          page={page}
+          total={listQuestion?.length}
+          withControls={false}
+          className="!gap-0 space-x-2"
+          classNames={{
+            item: 'bg-white min-w-[24px] h-6 w-6 lg:min-w-[32px] lg:h-8 lg:w-8',
+          }}
+          styles={() => ({
+            item: {
+              '&[data-active]': {
+                backgroundColor: '#FF3BAF !important',
+              },
+            },
+          })}
+          onChange={(page: number) => {
+            setPage(page);
+            leftRef.current.scrollTop = 0;
+            rightRef.current.scrollTop = 0;
+          }}
+        />
+      </div>
+    );
+  };
+
+  const leftContainer = () => {
+    return (
+      <div
+        className="h-full overflow-y-auto px-6 pt-[40px] relative flex flex-col justify-between"
+        ref={leftRef}
+      >
+        {listQuestion?.length > 0 &&
+          listQuestion.map((item: any, index: number) => (
+            <div
+              className={`pb-[160px] ${
+                page === index + 1 ? 'block' : 'hidden'
+              }`}
+              key={index}
+            >
+              <h3 className="text-2xl">Reading passage {index + 1}</h3>
+              <p
+                className={`mt-3 ${getFontSize(fontSize)}`}
+                dangerouslySetInnerHTML={{
+                  __html: item?.solution || item?.text,
+                }}
+              ></p>
+            </div>
+          ))}
+
+        <div className="sticky bottom-0 w-full py-3 hidden items-center justify-between bg-ct-neutral-200 select-none">
+          <Button
+            className="bg-white"
+            variant="outline"
+            disabled={page === 1}
+            onClick={() => {
+              setPage(page - 1);
+              leftRef.current.scrollTop = 0;
+              rightRef.current.scrollTop = 0;
+            }}
+          >
+            Previous Passage
+          </Button>
+          <Button
+            disabled={page === listQuestion?.length}
+            onClick={() => {
+              setPage(page + 1);
+              leftRef.current.scrollTop = 0;
+              rightRef.current.scrollTop = 0;
+            }}
+          >
+            Next Passage
+          </Button>
+        </div>
+      </div>
+    );
+  };
+
+  const rightContainer = () => {
+    return (
+      <div className="h-full bg-[#F9F9F9] relative pb-[62px] sm:pb-[64px] lg:pb-0">
+        <div
+          className="h-full overflow-y-auto scroll-smooth px-4"
+          ref={rightRef}
+          onScroll={onScroll}
+        >
+          <div className="pb-5 lg:pb-[160px]">
+            {listQuestion?.length > 0 &&
+              listQuestion.map((item: any, index: any) => (
+                <div
+                  key={index}
+                  className={`flex-col space-y-6 ${getFontSize(fontSize)} ${
+                    page === index + 1 ? 'flex' : 'hidden'
+                  }`}
+                >
+                  {getContentQuestion(item, index + 1)}
+                </div>
+              ))}
+          </div>
+          <div
+            className={`cursor-pointer transition-all duration-500 ease-linear ${
+              isReadHere ? 'w-[126px] sm:w-[134px]' : 'w-[40px] sm:w-[48px]'
+            } h-[40px] sm:h-[48px] px-2 sm:px-3 bg-ct-tertiary-600 rounded-full inline-flex flex-nowrap items-center justify-center sticky bottom-8 float-right lg:hidden`}
+            onClick={() => setIsDrawerRead(true)}
+          >
+            <span className="flex items-center justify-center">
+              <DocumentText color="#ffffff" variant="Bold" />
+            </span>
+            <span className="read-here text-white font-medium text-sm">
+              &nbsp;See passage
+            </span>
+          </div>
+        </div>
+
+        <div className="bg-white absolute bottom-0 w-full px-4 py-3 hidden items-center justify-between select-none">
+          <Button
+            className="bg-white"
+            variant="outline"
+            disabled={page === 1}
+            onClick={() => {
+              setPage(page - 1);
+              leftRef.current.scrollTop = 0;
+              rightRef.current.scrollTop = 0;
+            }}
+          >
+            Previous Passage
+          </Button>
+          <Button
+            disabled={page === listQuestion?.length}
+            onClick={() => {
+              setPage(page + 1);
+              leftRef.current.scrollTop = 0;
+              rightRef.current.scrollTop = 0;
+            }}
+          >
+            Next Passage
+          </Button>
+        </div>
+      </div>
+    );
+  };
+
+  const testContent = () => {
+    return (
+      <div className="flex h-full overflow-hidden w-full">
+        <div
+          className={`h-full w-full pt-[100px] sm:pt-[60px] overflow-y-auto ${getCursorClass(
+            cursorCustom,
+          )} `}
+          onMouseUp={onMouseUp}
+        >
+          <MySlpit leftContent={leftContainer} rightContent={rightContainer} />
+          <Drawer
+            opened={isDrawerRead}
+            className="lg:hidden"
+            onClose={() => setIsDrawerRead(false)}
+            zIndex={1201}
+            withCloseButton={false}
+            size={'100%'}
+            classNames={{
+              drawer: 'overflow-y-auto',
+            }}
+          >
+            <div className="p-4 pb-8">
+              {listQuestion?.length > 0 &&
+                listQuestion.map((item: any, index: number) => (
+                  <div
+                    className={`${page === index + 1 ? 'block' : 'hidden'}`}
+                    key={index}
+                  >
+                    <h3 className="text-2xl">Reading passage {index + 1}</h3>
+                    <p
+                      className={`mt-3 ${getFontSize(fontSize)}`}
+                      dangerouslySetInnerHTML={{
+                        __html: item?.solution || item?.text,
+                      }}
+                    ></p>
+                  </div>
+                ))}
+            </div>
+            <div className="sticky bottom-0 w-full bg-white py-2">
+              <Button
+                className="mx-auto "
+                variant="solid"
+                onClick={() => setIsDrawerRead(false)}
+              >
+                See questions
+              </Button>
+            </div>
+          </Drawer>
+        </div>
+      </div>
+    );
+  };
+
+  return (
+    <div className="flex">
+      <ContentTestLayout
+        page={page}
+        setPage={setPage}
+        total={3}
+        type={'answer-detail'}
+        childrenHeader={headerContent}
+        childrenContent={testContent}
+        listGraded={listGraded}
+        listQuestion={listQuestion}
+        contentRef={rightRef}
+        redoStatus={redoStatus}
+        metadata={metadata}
+      />
+    </div>
+  );
+};
+
+export default AnswerDetail;

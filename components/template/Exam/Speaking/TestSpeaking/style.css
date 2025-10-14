@@ -1,0 +1,28 @@
+.video-container {
+  height: auto;
+}
+
+.video-container:hover .box-control {
+  visibility: visible;
+  opacity: 1;
+}
+
+/* .video-container video::-webkit-media-controls {
+  display: none !important;
+} */
+
+.video-container:fullscreen .box-control {
+  padding-bottom: 1rem;
+}
+
+.video-container:fullscreen .icon-fullsize {
+  display: none;
+}
+.video-container:fullscreen .icon-minisize {
+  display: block;
+}
+
+.video-container-AI:hover .box-control {
+  visibility: visible;
+  opacity: 1;
+}

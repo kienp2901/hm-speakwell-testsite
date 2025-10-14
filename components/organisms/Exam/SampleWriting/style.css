@@ -1,0 +1,52 @@
+.answer-table figure.table {
+  margin-bottom: 24px;
+}
+
+.answer-table figure.table table {
+  border-collapse: collapse;
+}
+
+.answer-table figure.table td {
+  border: 1px solid #000 !important;
+  padding: 4px !important;
+  font-size: 14px;
+}
+
+.custom-accordion {
+  box-shadow: none !important;
+  margin-top: 0 !important;
+}
+.custom-accordion .MuiAccordionSummary-gutters {
+  background-color: #e2ebf3;
+  min-height: 48px !important;
+  padding: 0 8px;
+}
+
+.custom-accordion::before {
+  height: 0 !important;
+  top: 0 !important;
+}
+
+.custom-accordion .MuiAccordionSummary-content {
+  margin: 0 !important;
+}
+
+.custom-accordion .MuiAccordionDetails-root {
+  padding: 0 !important;
+}
+
+@media (min-width: 380px) {
+  .answer-table figure.table td {
+    padding: 6px !important;
+  }
+}
+
+@media (min-width: 640px) {
+  .answer-table figure.table td {
+    padding: 8px !important;
+    font-size: 16px;
+  }
+  .custom-accordion .MuiAccordionSummary-gutters {
+    padding: 0 20px;
+  }
+}

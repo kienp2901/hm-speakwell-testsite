@@ -1,0 +1,254 @@
+{
+    "sidebar": {
+        "myCourse": "My Courses",
+        "dashboard": "Dashboard",
+        "learningStatistic": "Learning Statistic"
+    },
+    "header": {
+        "info": "Personal Information",
+        "language": "Language",
+        "logout": "Logout",
+        "setting": "Settings",
+        "choseLanguage": "Choose Language",
+        "vi": "Vietnamese",
+        "en": "English",
+        "de": "German",
+        "applyLanguage": "Language will be applied to the entire application"
+    },
+    "footer": {
+        "dashboard": "Dashboard",
+        "settings": "Settings",
+        "logout": "Logout"
+    },
+    "signin": {
+        "title": "Welcome to",
+        "login": "Login Now"
+    },
+    "loading": {
+        "loading": "Loading",
+        "waiting": "Please wait"
+    },
+    "info_user": {
+        "title": "Update Personal Information",
+        "name": "Full Name",
+        "error_name": "Full name cannot be empty",
+        "phone": "Phone Number",
+        "error_phone": "Invalid phone number",
+        "email": "Email",
+        "error_email": "Invalid email",
+        "gender": "Gender",
+        "male": "Male",
+        "female": "Female",
+        "unknow": "Unknown",
+        "birthday": "Date of Birth",
+        "error_birthday": "Date of birth cannot be in the future",
+        "placeholder_birthday": "Select date of birth",
+        "required": "Required",
+        "update": "Complete",
+        "address": "Address",
+        "success_update": "Information updated successfully",
+        "error_update": "Failed to update information"
+    },
+    "my_course": {
+        "title": "My Courses",
+        "elementary": "Elementary",
+        "completed": "Completed",
+        "expiration_date": "Expiration Date",
+        "activate_now": "Activate Now",
+        "not_activated": "Not Activated",
+        "no_course": "You don't have any courses yet",
+        "register_now": "Register Now",
+        "test_now": "To test your current level, take the entrance test now!",
+        "lesson": "Lesson",
+        "quiz": "Quiz",
+        "resource": "Resource",
+        "content": "Lesson Content",
+        "completed_content": "Completed Content",
+        "condition_to_complete": "Conditions to Complete",
+        "required_complete": "You must complete the following activities before you can access this activity:",
+        "activity": "Activity",
+        "section": "Section",
+        "topic": "Topic"
+    },
+    "exam_library": {
+        "no_attempts_left": "No attempts left",
+        "start_exam_now": "Start Exam Now",
+        "recent_attempts_history": "Recent 10 attempts history",
+        "attempt": "Attempt",
+        "submit_time": "Submit time",
+        "not_submitted": "You haven't submitted this exam",
+        "review_exam": "Review Exam",
+        "continue_exam": "Continue",
+        "result": "Result",
+        "passed": "Passed",
+        "failed": "Failed",
+        "reading": "Reading",
+        "listening": "Listening",
+        "writing": "Writing",
+        "speaking": "Speaking"
+    },
+    "exercise": {
+        "finish_test_confirm": "Do you want to finish the test?",
+        "no_take_me_back": "No, take me back",
+        "yes_i_do": "Yes, I do",
+        "no_permission": "You don't have permission to access this link.",
+        "back_to_homepage": "Back to homepage",
+        "processing_result": "Processing result...",
+        "test_name": "Test Name",
+        "general_info": "General Information",
+        "total_questions": "Total questions",
+        "questions": "questions",
+        "time_limit": "Time limit",
+        "unlimited": "Unlimited",
+        "minutes": "minutes",
+        "instructions": "Instructions",
+        "save_draft_instruction": "Press the save button to save your draft and current progress",
+        "answer_all_questions": "Answer all questions from all parts before submitting",
+        "submit_to_finish": "Press submit button to finish the test and get results",
+        "start_test": "Start Test",
+        "practice_test": "Practice Test"
+    },
+  "beforeunload": {
+    "incomplete_questions": "You have not completed all the questions. Do you want to save the",
+    "save_or_exit": "to continue in the next attempt or exit the",
+    "practice": "practice",
+    "exam": "exam",
+    "save": "Save the",
+    "exit": "Exit the",
+    "answers_will_be_deleted": "All your answers will be deleted.",
+    "do_you_want_to_exit": "Do you want to exit?",
+    "no_take_me_back": "No, take me back",
+    "yes_i_do": "Yes, I do"
+  },
+  "result_modal_exercise": {
+    "test_result": "Test Result",
+    "congratulations_completed": "Congratulations! You have completed this practice!",
+    "sorry_not_completed": "Sorry, you haven't completed this practice yet",
+    "keep_up_good_work": "Keep up the good work!",
+    "try_again_better": "Try again to achieve better results",
+    "score_achieved": "Score achieved",
+    "passed": "Passed",
+    "failed": "Failed",
+    "review_exam": "Review Exam",
+    "back_to_course": "Back to Course",
+    "practice_test": "Practice Test"
+  },
+  "content_test": {
+    "question_palette": "Question Palette"
+  },
+  "header_test": {
+    "submit": "Submit",
+    "redo": "Redo",
+    "back": "Back",
+    "exit": "Exit",
+    "ai_grading_message": "The AI system is currently in the grading process; the test results will be sent shortly. Do you want to proceed?",
+    "back_to_homepage": "Back to homepage",
+    "continue_waiting": "Continue waiting"
+  },
+  "modal_exit_pause": {
+    "incomplete_questions": "You have not completed all the questions. Do you want to save the",
+    "save_or_exit": "to continue in the next attempt or exit the",
+    "practice": "practice",
+    "exam": "exam",
+    "save": "Save the",
+    "exit": "Exit the"
+  },
+  "modal_exit": {
+    "answers_will_be_deleted": "All your answers will be deleted.",
+    "do_you_want_to_exit": "Do you want to exit?",
+    "no_take_me_back": "No, take me back",
+    "yes_i_do": "Yes, I do"
+  },
+  "board_question": {
+    "font_size": "Font size",
+    "large": "Large",
+    "medium": "Medium",
+    "small": "Small",
+    "highlight_tool": "Highlight tool",
+    "no_highlight": "No highlight",
+    "eraser": "Eraser",
+    "use_this_color": "Use this color",
+    "comment": "Comment",
+    "review": "Review",
+    "question_palette": "Question palette",
+    "unanswered": "unanswered",
+    "answered": "answered",
+    "section": "Section",
+    "instruction": "Instruction"
+  },
+  "board_question_mobile": {
+    "question_palette": "Question palette",
+    "unanswered": "unanswered",
+    "answered": "answered",
+    "section": "Section",
+    "review": "Review"
+  },
+  "full_result_exam": {
+    "congratulations_completed": "Congratulations on completing the test, here are your results",
+    "here_are_your_score": "Here are your score",
+    "overall": "Overall",
+    "waiting": "Waiting",
+    "passed": "Passed",
+    "failed": "Failed",
+    "ielts_listening": "IELTS Listening",
+    "reading": "Reading",
+    "writing": "Writing",
+    "speaking": "Speaking",
+    "time": "Time",
+    "view_details": "View details"
+  },
+  "exam_info": {
+    "time": "Time",
+    "instructions_to_candidates": "Instructions to candidates",
+    "information_for_candidates": "Information for candidates",
+    "about_exam_mode": "*About Exam mode:",
+    "instruction": "Instruction"
+  },
+  "listening_info": {
+    "title": "IELTS Listening",
+    "time": "Approximately 30 minutes",
+    "instruct_exam_1": "Answer all the questions as you listen.",
+    "instruct_exam_2": "You can change your answers at any time during the test.",
+    "instruct_practice_1": "Answer all the questions as you listen.",
+    "instruct_practice_2": "You can change your answers at any time during the test.",
+    "info_exam_1": "There are 04 parts to the test, with a total of 40 questions.",
+    "info_exam_2": "You can only listen ONCE.",
+    "info_exam_3": "Each question carries one mark.",
+    "info_exam_4": "You will NOT lose points for incorrect answers, so try to answer all questions.",
+    "info_exam_5": "For each part of the test, there will be time for you to look through the questions and time for you to check your answers.",
+    "info_exam_6": "At the end of the test, you will have 02 minutes to check your answers. You can submit early during these 02 minutes.",
+    "info_exam_7": "Click 'Start test' when you are ready.",
+    "info_practice_1": "There are 04 parts to the test, with a total of 40 questions.",
+    "info_practice_2": "Each question carries one mark.",
+    "info_practice_3": "You WILL NOT lose points for incorrect answers, so try to answer all questions.",
+    "info_practice_4": "For each part of the test, there will be time for you to look through the questions and time for you to check your answers.",
+    "info_practice_5": "You can replay or skip the listening recording as you wish*.",
+    "info_practice_6": "If you wish to move between parts during the test, click the numbers on the top of the screen (e.g. Click on icon \"4\" to read questions in part 4). This will not change the listening recording.",
+    "info_practice_7": "If you wish to skip the recording to the next part, click \"Next part\".*",
+    "info_practice_8": "If you wish to move the recording back to the previous part, click \"Previous part\".*",
+    "info_practice_9": "At the end of the test, you will have 02 minutes to check your answers.",
+    "info_practice_10": "Click 'Start test' when you are ready.",
+    "about_exam_1": "You will have to complete all 04 parts of the test in one sitting, so make sure to set aside around 03 hours to do the test.",
+    "about_exam_2": "You will have to wait until the end of the listening test to move on to the reading test.",
+    "about_practice_1": "*This is an added feature for the Practice mode. You can only listen ONCE in the real test."
+  },
+  "modal_warning": {
+    "mobile_version_message": "The mobile version will have some missing features, please use the PC version for a more comprehensive experience.",
+    "understand": "Understand"
+  },
+  "test_sound": {
+    "check_your_device": "Check your device",
+    "test_sound": "Test sound",
+    "instruction": "Put on your headphones and click the Play sound button to play a sample sound.",
+    "play_sound": "Play sound"
+  },
+  "scores": {
+    "correct_answers": "Correct answers",
+    "ielts_score": "IELTS score"
+  },
+  "more_info": {
+    "advice_for_improvement": "Advice for improvement",
+    "review": "Review"
+  },
+    "close": "Close"
+}
