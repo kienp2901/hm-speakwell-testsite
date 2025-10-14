@@ -21,7 +21,6 @@ const AnswerKey = () => {
   const router = useRouter();
   const params = router.query;
   const { idExam, idHistory } = params;
-  ;
   const dispatch = useDispatch();
   
   const pathname = router.asPath;
