@@ -93,7 +93,7 @@ interface ExamPartContinueResponse {
 
 interface ExamPartSubmitParams {
   idHistory: string;
-  quiz_id: number;
+  idMockContest: number;
   idbaikiemtra: number;
   contest_type_id: number;
   skill?: number;
@@ -113,6 +113,8 @@ interface ExamPartSubmitResponse {
 
 interface HistoryDetailResponse {
   data: {
+    message: string;
+    status: number;
     data?: any;
     metadata?: any;
   };
@@ -223,7 +225,7 @@ export const postExamPartSubmit = async (
   params: ExamPartSubmitParams
 ): Promise<ExamPartSubmitResponse> => {
   console.log('postExamPartSubmit called with:', params);
-  const response = await instance.post(`fe/ems/v1/exam/submit`, params);
+  const response = await instance.post(`fe/ems/v1/lmsnew_testsite/exam/submit`, params);
   console.log('postExamPartSubmit response:', response);
   return response as ExamPartSubmitResponse;
 };
@@ -245,7 +247,7 @@ export const postExamPartPause = async (params: any): Promise<any> => {
 // Stop exam
 export const postExamPartStopApi = async (idHistoryContest: string): Promise<any> => {
   console.log('postExamPartStopApi called with:', idHistoryContest);
-  const response = await instance.post(`fe/ems/v1/exam/stop`, {
+  const response = await instance.post(`fe/ems/v1/lmsnew1/mockcontest/session/stop`, {
     idHistoryContest,
   });
   return response;

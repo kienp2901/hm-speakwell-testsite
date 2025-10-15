@@ -98,7 +98,7 @@ const TestListening = () => {
     setShowDialog(false);
     const dataParams = {
       idHistory: `${idHistoryRound}`,
-      quiz_id: Number(examInfo?.quiz_id),
+      idMockContest: Number(params?.idExam),
       idbaikiemtra: Number(params?.idRound),
       contest_type_id: examInfo?.contest_type || 0,
       skill: TestType.Listening,
@@ -500,22 +500,29 @@ const TestListening = () => {
         )}
         <span>{'Part'}</span>
         <Pagination
-          page={page}
+          key={`pagination-${page}`}
+          defaultValue={page}
+          onChange={(page: number) => {
+            setPage(page);
+          }}
           total={listQuestion?.length}
           withControls={false}
           className="!gap-0 space-x-2"
-          classNames={{
-            item: 'bg-white min-w-[24px] h-6 w-6 lg:min-w-[32px] lg:h-8 lg:w-8',
-          }}
-          styles={() => ({
-            item: {
-              '&[data-active]': {
-                backgroundColor: '#FF3BAF !important',
+          sx={{
+            '& button[data-active]': {
+              backgroundColor: '#FF3BAF !important',
+            },
+            '& button': {
+              backgroundColor: 'white',
+              minWidth: '24px',
+              height: '24px',
+              width: '24px',
+              '@media (min-width: 1024px)': {
+                minWidth: '32px',
+                height: '32px',
+                width: '32px',
               },
             },
-          })}
-          onChange={(page: number) => {
-            setPage(page);
           }}
         />
       </div>

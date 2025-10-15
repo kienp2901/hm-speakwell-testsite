@@ -18,6 +18,8 @@ const ModalExit = ({ isOpen, onClose }: ModalExitProps) => {
   const router = useRouter();
   const dispatch = useDispatch();
   const pathname = router.asPath;
+  const params = router.query;
+  const { tenant, campaign, slug } = params;
 
   const idHistoryContest = useSelector(IdHistoryContest, shallowEqual);
 
@@ -50,7 +52,10 @@ const ModalExit = ({ isOpen, onClose }: ModalExitProps) => {
                 if (ele.length > 0) {
                   ele[0].setAttribute('src', '');
                 }
-                router.replace(LocalStorageService.get('historyPath') || '/');
+                const redirectPath = tenant && campaign && slug 
+                  ? `/${tenant}/${campaign}/${slug}/`
+                  : '/';
+                router.replace(redirectPath);
                 dispatch(setListUserAnswer([]));
 
                 localStorage.removeItem('page');

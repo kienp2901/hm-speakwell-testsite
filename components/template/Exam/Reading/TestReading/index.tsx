@@ -196,7 +196,7 @@ const TestReading = () => {
     localStorage.removeItem('page');
     const dataParams = {
       idHistory: `${idHistoryRound}`,
-      quiz_id: Number(examInfo?.quiz_id),
+      idMockContest: Number(params?.idExam),
       idbaikiemtra: Number(params?.idRound),
       contest_type_id: examInfo?.contest_type as number,
       skill: TestType.Reading,
@@ -458,25 +458,32 @@ const TestReading = () => {
         </div>
         <span>{'Passage'}</span>
         <Pagination
-          page={page}
+          key={`pagination-${page}`}
+          defaultValue={page}
+          onChange={(newPage: number) => {
+            setPage(newPage);
+            localStorage.setItem('page', `${newPage}`);
+            if (leftRef.current) leftRef.current.scrollTop = 0;
+            if (rightRef.current) rightRef.current.scrollTop = 0;
+          }}
           total={listQuestion?.length}
           withControls={false}
           className="!gap-0 space-x-2"
-          classNames={{
-            item: 'bg-white min-w-[24px] h-6 w-6 lg:min-w-[32px] lg:h-8 lg:w-8',
-          }}
-          styles={() => ({
-            item: {
-              '&[data-active]': {
-                backgroundColor: '#FF3BAF !important',
+          sx={{
+            '& button[data-active]': {
+              backgroundColor: '#FF3BAF !important',
+            },
+            '& button': {
+              backgroundColor: 'white',
+              minWidth: '24px',
+              height: '24px',
+              width: '24px',
+              '@media (min-width: 1024px)': {
+                minWidth: '32px',
+                height: '32px',
+                width: '32px',
               },
             },
-          })}
-          onChange={(page: number) => {
-            setPage(page);
-            localStorage.setItem('page', `${page}`);
-            leftRef.current.scrollTop = 0;
-            rightRef.current.scrollTop = 0;
           }}
         />
       </div>
@@ -514,10 +521,11 @@ const TestReading = () => {
               variant="outline"
               disabled={page === 1}
               onClick={() => {
-                localStorage.setItem('page', `${page - 1}`);
-                setPage(page - 1);
-                leftRef.current.scrollTop = 0;
-                rightRef.current.scrollTop = 0;
+                const newPage = page - 1;
+                setPage(newPage);
+                localStorage.setItem('page', `${newPage}`);
+                if (leftRef.current) leftRef.current.scrollTop = 0;
+                if (rightRef.current) rightRef.current.scrollTop = 0;
               }}
             >
               Previous Passage
@@ -525,10 +533,11 @@ const TestReading = () => {
             <Button
               disabled={page === listQuestion?.length}
               onClick={() => {
-                localStorage.setItem('page', `${page + 1}`);
-                setPage(page + 1);
-                leftRef.current.scrollTop = 0;
-                rightRef.current.scrollTop = 0;
+                const newPage = page + 1;
+                setPage(newPage);
+                localStorage.setItem('page', `${newPage}`);
+                if (leftRef.current) leftRef.current.scrollTop = 0;
+                if (rightRef.current) rightRef.current.scrollTop = 0;
               }}
             >
               Next Passage
@@ -580,10 +589,11 @@ const TestReading = () => {
             variant="outline"
             disabled={page === 1}
             onClick={() => {
-              localStorage.setItem('page', `${page - 1}`);
-              setPage(page - 1);
-              leftRef.current.scrollTop = 0;
-              rightRef.current.scrollTop = 0;
+              const newPage = page - 1;
+              setPage(newPage);
+              localStorage.setItem('page', `${newPage}`);
+              if (leftRef.current) leftRef.current.scrollTop = 0;
+              if (rightRef.current) rightRef.current.scrollTop = 0;
             }}
           >
             Previous
@@ -601,12 +611,13 @@ const TestReading = () => {
             )}
           </div>
           <Button
-            disabled={page === 3}
+            disabled={page === listQuestion?.length}
             onClick={() => {
-              localStorage.setItem('page', `${page + 1}`);
-              setPage(page + 1);
-              leftRef.current.scrollTop = 0;
-              rightRef.current.scrollTop = 0;
+              const newPage = page + 1;
+              setPage(newPage);
+              localStorage.setItem('page', `${newPage}`);
+              if (leftRef.current) leftRef.current.scrollTop = 0;
+              if (rightRef.current) rightRef.current.scrollTop = 0;
             }}
           >
             Next

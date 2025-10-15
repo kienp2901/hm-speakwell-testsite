@@ -167,7 +167,7 @@ const FullResult = () => {
                           : metadata?.rounds[0]?.exam_scores?.status
                           ? 'bg-ct-green-100 text-base font-medium'
                           : 'bg-ct-fail text-xl font-white'
-                      } w-16 h-12 rounded-[100px] text-white inline-flex items-center mr-6 justify-center`}
+                      } w-24 h-12 rounded-[100px] text-white inline-flex items-center mr-6 justify-center`}
                     >
                       {!metadata?.rounds[0]?.exam_scores?.graded
                         ? t('full_result_exam.waiting')
@@ -231,7 +231,7 @@ const FullResult = () => {
                           : metadata?.rounds[1]?.exam_scores?.status
                           ? 'bg-ct-green-100 text-base font-medium'
                           : 'bg-ct-fail text-xl font-white'
-                      } w-16 h-12 rounded-[100px] text-white inline-flex items-center mr-6 justify-center`}
+                      } w-24 h-12 rounded-[100px] text-white inline-flex items-center mr-6 justify-center`}
                     >
                       {!metadata?.rounds[1]?.exam_scores?.graded
                         ? t('full_result_exam.waiting')
@@ -293,7 +293,7 @@ const FullResult = () => {
                           : metadata?.rounds[2]?.exam_scores?.status
                           ? 'bg-ct-green-100 text-base font-medium'
                           : 'bg-ct-fail text-xl font-white'
-                      } w-16 h-12 rounded-[100px] text-white inline-flex items-center mr-6 justify-center`}
+                      } w-24 h-12 rounded-[100px] text-white inline-flex items-center mr-6 justify-center`}
                     >
                       {!metadata?.rounds[2]?.exam_scores?.graded
                         ? t('full_result_exam.waiting')
@@ -350,7 +350,7 @@ const FullResult = () => {
                           : metadata?.rounds[3]?.exam_scores?.status
                           ? 'bg-ct-green-100 text-base font-medium'
                           : 'bg-ct-fail text-xl font-white'
-                      } w-16 h-12 rounded-[100px] text-white inline-flex items-center mr-6 justify-center`}
+                      } w-24 h-12 rounded-[100px] text-white inline-flex items-center mr-6 justify-center`}
                     >
                       {!metadata?.rounds[3]?.exam_scores?.graded
                         ? t('full_result_exam.waiting')

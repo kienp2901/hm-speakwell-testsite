@@ -103,7 +103,10 @@ const HeaderTest = ({
           router.back();
         } else {
           setTimeout(() => {
-            router.replace(LocalStorageService.get('historyPath') || '/');
+            const redirectPath = params.tenant && params.campaign && params.slug 
+              ? `/${params.tenant}/${params.campaign}/${params.slug}/`
+              : '/';
+            router.replace(redirectPath);
           }, 500);
         }
         dispatch(setListUserAnswer([]));
@@ -115,7 +118,10 @@ const HeaderTest = ({
       location?.pathname.includes('/exam/result') ||
       location?.pathname.includes('/exercise/result')
     ) {
-      router.push(LocalStorageService.get('historyPath') || '/mycourses');
+      const redirectPath = params.tenant && params.campaign && params.slug 
+        ? `/${params.tenant}/${params.campaign}/${params.slug}/`
+        : '/';
+      router.push(redirectPath);
     } else if (location?.pathname.includes('/answer-task-detail')) {
       router.back();
     } else {
@@ -126,7 +132,7 @@ const HeaderTest = ({
   const onSubmit = async () => {
     const dataParams = {
       idHistory: `${idHistoryRound}`,
-      quiz_id: Number(params?.idExam),
+      idMockContest: Number(params?.idExam),
       idbaikiemtra: Number(params?.idRound),
       contest_type_id: 19,
       listUserAnswer: [...listUserAnswerState],
@@ -307,7 +313,10 @@ const HeaderTest = ({
                 }
                 dispatch(setListUserAnswer([]));
                 removeEleComment();
-                router.replace('/');
+                const redirectPath = params.tenant && params.campaign && params.slug 
+                  ? `/${params.tenant}/${params.campaign}/${params.slug}/`
+                  : '/';
+                router.replace(redirectPath);
               }}
             >
               {t('header_test.back_to_homepage')}

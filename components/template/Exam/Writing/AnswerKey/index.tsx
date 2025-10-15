@@ -1,9 +1,9 @@
 /* eslint-disable object-shorthand */
 /* eslint-disable no-nested-ternary */
-import { HoverCard, Modal, RingProgress, Text } from '@mantine/core';
+import { Modal, RingProgress, Text } from '@mantine/core';
 import MoreInfo from '@/components/organisms/Exam/AnswerKey/MoreInfo';
 import HeaderTest from '@/components/organisms/Exam/HeaderTest';
-import SampleWriting from '@/components/organisms/Exam/SampleWriting';
+// import SampleWriting from '@/components/organisms/Exam/SampleWriting';
 import Button from '@/components/sharedV2/Button';
 import LoadingExam from '@/components/shared/LoadingExam';
 import { TestType } from '@/enum';
@@ -12,7 +12,8 @@ import { useEffect, useMemo, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { useRouter } from 'next/router';
 import { LocalStorageService } from '@/services';
-import { getHistoryDetail, sendToExaminerApi } from '@/service/api/examConfig';
+// import { getHistoryDetail, sendToExaminerApi } from '@/service/api/examConfig';
+import { getHistoryDetail } from '@/service/api/examConfig';
 import { setListUserAnswer } from '@/store/slice/examInfo';
 import { getTimeCountdown, removeEleComment } from '@/utils';
 import { notify } from '@/utils/notify';
@@ -46,7 +47,7 @@ const AnswerKey = () => {
   }, [metadataAnswer, isScore]);
 
   const clickReviewTask = (itemTask: any) => {
-    navigate(
+    router.push(
       `${pathname.replace('/answer-key', '/answer-task-detail')}/${
         itemTask?.idQuestion
       }`,
@@ -92,8 +93,7 @@ const AnswerKey = () => {
           delay: 500,
         });
         router.push('/history');
-      })
-      .finally(() => {});
+      });
   };
 
   const getExamHistoryPart = async () => {
@@ -114,8 +114,7 @@ const AnswerKey = () => {
           delay: 500,
         });
         router.push('/history');
-      })
-      .finally(() => {});
+      });
   };
 
   useEffect(() => {
@@ -423,10 +422,10 @@ const AnswerKey = () => {
           withCloseButton={false}
           closeOnClickOutside={false}
           centered
-          onClose={() => {}}
+          onClose={() => undefined}
           zIndex={1201}
           styles={{
-            modal: {
+            root: {
               backgroundColor: 'transparent',
               boxShadow: 'none',
             },
@@ -446,7 +445,7 @@ const AnswerKey = () => {
           radius={'lg'}
           classNames={{
             header: 'mb-0',
-            modal: 'p-3',
+            root: 'p-3',
             close:
               'bg-ct-neutral-200 rounded-full text-ct-primary-400 min-w-[24px] min-h-[24px] w-6 h-6 hover:bg-ct-neutral-300 mr-2',
           }}
@@ -491,7 +490,7 @@ const AnswerKey = () => {
           radius={'lg'}
           classNames={{
             header: 'mb-0',
-            modal: 'p-3',
+            root: 'p-3',
             close:
               'bg-ct-neutral-200 rounded-full text-ct-primary-400 min-w-[24px] min-h-[24px] w-6 h-6 hover:bg-ct-neutral-300 mr-2',
           }}
@@ -526,9 +525,7 @@ const AnswerKey = () => {
                   }
                   dispatch(setListUserAnswer([]));
                   removeEleComment();
-                  navigate(`/exams-library`, {
-                    replace: true,
-                  });
+                  router.replace(`/exams-library`);
                 }}
               >
                 Take another test
