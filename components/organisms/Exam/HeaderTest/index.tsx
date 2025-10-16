@@ -208,7 +208,12 @@ const HeaderTest = ({
               ? ''
               : 'hidden'
           } sm:block`}
-          onClick={() => router.replace('/')}
+          onClick={() => {
+            const redirectPath = params.tenant && params.campaign && params.slug 
+              ? `/${params.tenant}/${params.campaign}/${params.slug}/`
+              : '/';
+            router.replace(redirectPath);
+          }}
         >
           <img src={Logo_Ican} alt="" />
         </div>

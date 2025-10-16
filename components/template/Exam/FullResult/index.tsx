@@ -33,7 +33,10 @@ const FullResult = () => {
           setMetadata(res.data.data[0]);
         })
         .catch(err => {
-          router.replace('/');
+          const redirectPath = params.tenant && params.campaign && params.slug 
+            ? `/${params.tenant}/${params.campaign}/${params.slug}/`
+            : '/';
+          router.replace(redirectPath);
           notify({
             type: 'error',
             message: err?.response?.data?.message,
