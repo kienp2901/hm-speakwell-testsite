@@ -10,13 +10,13 @@ import { TestType } from '@/enum';
 import { useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
 import { getHistoryDetail, sendToExaminerApi } from '@/service/api/examConfig';
-import notify from '@/utils/notify';
+import { notify } from '@/utils/notify';
 
 const AnswerKey = () => {
   const router = useRouter();
   const params = router.query;
   const { idHistory } = params;
-  
+
   const pathname = router.asPath;
   const [metadataAnswer, setMetadataAnswer] = useState<any>();
   const [listQuestion, setListQuestion] = useState<any>([]);
@@ -167,7 +167,7 @@ const AnswerKey = () => {
             </p>
             {metadataAnswer?.speaking?.map((itemSkill: any, index: number) => {
               return (
-                <div className="mt-6">
+                <div key={index} className="mt-6">
                   <div className="flex items-center justify-between">
                     <p
                       dangerouslySetInnerHTML={{

@@ -14,13 +14,13 @@ export default function InitComponent() {
       const isDynamicRoute = router.pathname.includes('[tenant]') || 
                             (router.asPath && router.asPath.split('/').length >= 4);
       
-      console.log('InitComponent - studentID:', studentID);
-      console.log('InitComponent - pathname:', router.pathname);
-      console.log('InitComponent - asPath:', router.asPath);
-      console.log('InitComponent - isDynamicRoute:', isDynamicRoute);
+      // console.log('InitComponent - studentID:', studentID);
+      // console.log('InitComponent - pathname:', router.pathname);
+      // console.log('InitComponent - asPath:', router.asPath);
+      // console.log('InitComponent - isDynamicRoute:', isDynamicRoute);
       
       if (!isDynamicRoute && location.pathname != '/') {
-        console.log('InitComponent - Redirecting to /');
+        // console.log('InitComponent - Redirecting to /');
         // router.replace('/');
       }
     }

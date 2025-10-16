@@ -26,7 +26,7 @@ export function useCallbackPrompt(when: boolean): [boolean, () => void, () => vo
     dispatch(setListUserAnswer([]));
     
     if (router.asPath.includes('/test')) {
-      await postExamPartStopApi(Number(idHistoryContest));
+      await postExamPartStopApi(idHistoryContest as string);
     }
     
     const ele = document.getElementsByTagName('audio');

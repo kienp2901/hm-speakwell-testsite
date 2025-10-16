@@ -1,8 +1,6 @@
 import { LoadingOverlay, Table as TableMantine } from '@mantine/core';
 import { memo } from 'react';
 
-import './style.css';
-
 type columns = {
   title: string | JSX.Element | any;
   centered?: boolean;

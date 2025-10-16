@@ -21,6 +21,8 @@ const Listening = () => {
 
   const [active, setActive] = useState<number>(0);
   const [isModalWarning, setIsModalWarning] = useState<boolean>(false);
+  const getLastSegment = (pathname: string) => pathname.split('/').filter(Boolean).pop();
+  const last = getLastSegment(pathname);
 
   const onStartTest = () => {
     router.replace(`${pathname}/test`);
@@ -30,46 +32,57 @@ const Listening = () => {
 
   return (
     <>
-      <Stepper
-        active={active}
-        onStepClick={setActive}
-        breakpoint="sm"
-        classNames={{
-          steps: 'hidden',
-        }}
-      >
-        <Stepper.Step>
-          <TestSound />
-        </Stepper.Step>
-        <Stepper.Step>
-          <Info />
-        </Stepper.Step>
-      </Stepper>
-      {active === 0 ? (
-        <Button
-          onClick={() => setActive(1)}
-          className="mt-14 lg:mt-20 mx-auto"
-        >
-          {t('exam_library.continue_exam')}
-        </Button>
+      {last === 'test' ? (
+        <TestListening />
+      ) : last === 'answer-key' ? (
+        <AnswerKey />
+      ) : last === 'answer-detail' ? (
+        <AnswerDetail />
       ) : (
-        <Button
-          onClick={() => {
-            if (
-              navigator.userAgent.match(/iPad/i) ||
-              navigator.userAgent.match(/iPhone/i) ||
-              navigator.userAgent.match(/Android/i)
-            ) {
-              setIsModalWarning(true);
-            } else {
-              onStartTest();
-            }
-          }}
-          className="mt-10 xl:mt-14 2xl:mt-20 mx-auto"
-        >
-          {t('exercise.start_test')}
-        </Button>
+        <>
+          <Stepper
+            active={active}
+            onStepClick={setActive}
+            breakpoint="sm"
+            classNames={{
+              steps: 'hidden',
+            }}
+          >
+            <Stepper.Step>
+              <TestSound />
+            </Stepper.Step>
+            <Stepper.Step>
+              <Info />
+            </Stepper.Step>
+          </Stepper>
+          {active === 0 ? (
+            <Button
+              onClick={() => setActive(1)}
+              className="mt-14 lg:mt-20 mx-auto"
+            >
+              {t('exam_library.continue_exam')}
+            </Button>
+          ) : (
+            <Button
+              onClick={() => {
+                if (
+                  navigator.userAgent.match(/iPad/i) ||
+                  navigator.userAgent.match(/iPhone/i) ||
+                  navigator.userAgent.match(/Android/i)
+                ) {
+                  setIsModalWarning(true);
+                } else {
+                  onStartTest();
+                }
+              }}
+              className="mt-10 xl:mt-14 2xl:mt-20 mx-auto"
+            >
+              {t('exercise.start_test')}
+            </Button>
+          )}
+        </>
       )}
+      
 
       {(navigator.userAgent.match(/iPad/i) ||
         navigator.userAgent.match(/iPhone/i) ||

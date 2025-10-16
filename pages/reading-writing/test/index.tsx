@@ -79,18 +79,18 @@ const ReadingWritingTest: React.FC = () => {
         .then((res) => {
           if (res.status == 200) {
             if (res?.data.status == 200) {
-              var dataExam = res?.data?.metadata;
+              const dataExam = res?.data?.metadata;
               setListQuestion(dataExam?.listQuestion);
               setTimeAllow(dataExam?.timeAllow);
 
-              let convertData = dataExam?.listUserAnswer?.map((itemAnswer: any) => ({
+              const convertData = dataExam?.listUserAnswer?.map((itemAnswer: any) => ({
                 idQuestion: itemAnswer?.idQuestion,
                 answer: itemAnswer?.userAnswer,
               }));
               dispatch(setListUserAnswerDraft([]));
               dispatch(setListUserAnswer([...convertData]));
               if (dataExam?.listUserAnswer?.length > 0) {
-                let indexCurrent = dataExam?.listQuestion.findIndex(
+                const indexCurrent = dataExam?.listQuestion.findIndex(
                   (item: any) =>
                     item?.idQuestion == dataExam?.listUserAnswer[0].idQuestion,
                 );
@@ -110,7 +110,7 @@ const ReadingWritingTest: React.FC = () => {
         .then((res) => {
           if (res.status == 200) {
             if (res?.data.status == 200) {
-              var dataExam = res?.data?.metadata;
+              const dataExam = res?.data?.metadata;
               setListQuestion(dataExam?.listQuestion);
               setTimeAllow(dataExam?.timeAllow);
               dispatch(setIdHistory(dataExam?.idHistory));
@@ -128,11 +128,11 @@ const ReadingWritingTest: React.FC = () => {
 
   const handleVisibilityChange = useCallback(() => {
     if (idHistory && document.visibilityState === 'visible') {
-      examContinueApi(studentId, idHistory)
+      examContinueApi(studentId, idHistory as string)
         .then((res) => {
           if (res.status == 200) {
             if (res?.data.status == 200) {
-              var dataExam = res?.data?.metadata;
+              const dataExam = res?.data?.metadata;
               setTimeAllow(dataExam?.timeAllow);
             }
           }
@@ -180,7 +180,7 @@ const ReadingWritingTest: React.FC = () => {
     if (dataTime?.total != 0 && dataTime.seconds % 10 == 0) {
       if (listUserAnswerDraft?.length > 0) {
         examSaveApi(studentId, {
-          idHistory: idHistory,
+          idHistory: idHistory as string,
           listUserAnswer: [...listUserAnswerDraft],
         }).then((res) => {
           if (res?.status == 200) {
@@ -203,12 +203,12 @@ const ReadingWritingTest: React.FC = () => {
 
   const onSubmit = async () => {
     const response = await examSubmitApi(studentId, {
-      idHistory: idHistory,
+      idHistory: idHistory as string,
       listUserAnswer: listUserAnswer,
     });
     if (response.data.message === 'OK') {
       router.replace('/result');
-      sendEmailResultApi(studentId, idHistory, idMockContest, historyContestId);
+      sendEmailResultApi(studentId, idHistory as string, idMockContest as string, historyContestId as string);
       setTimeout(() => {
         dispatch(setListUserAnswer([]));
         dispatch(setListUserAnswerDraft([]));
@@ -225,11 +225,11 @@ const ReadingWritingTest: React.FC = () => {
   const overTime = async () => {
     setShowModalOverTime(true);
     const response = await examSubmitApi(studentId, {
-      idHistory: idHistory,
+      idHistory: idHistory as string,
       listUserAnswer: listUserAnswer,
     });
     if (response.data.message === 'OK') {
-      sendEmailResultApi(studentId, idHistory, idMockContest, historyContestId);
+      sendEmailResultApi(studentId, idHistory as string, idMockContest as string, historyContestId as string);
     } else {
       Notify({
         type: 'error',
@@ -242,7 +242,7 @@ const ReadingWritingTest: React.FC = () => {
     if (listQuestionExam.length > 0 && listUserAnswer.length > 0) {
       let numberDoneTemp = 0;
       listUserAnswer.map((item) => {
-        let typeQuest = listQuestionExam?.find(
+        const typeQuest = listQuestionExam?.find(
           (itemQuest) => itemQuest?.idQuestion == item?.idQuestion,
         )?.quiz_type;
         if (typeQuest == 6) {
@@ -252,7 +252,7 @@ const ReadingWritingTest: React.FC = () => {
         }
       });
       setNumberDone(numberDoneTemp);
-      let indexAnswer = listUserAnswer.findIndex(
+      const indexAnswer = listUserAnswer.findIndex(
         (itemAnswer) =>
           itemAnswer?.idQuestion == listQuestionExam[indexQuestion]?.idQuestion,
       );
@@ -434,7 +434,9 @@ const ReadingWritingTest: React.FC = () => {
         withCloseButton={false}
         radius={24}
         centered
-        onClose={() => {}}
+        onClose={() => {
+          return;
+        }}
       >
         <div className=" ">
           <p className=" text-center text-primary font-mikakoBold">
@@ -466,7 +468,9 @@ const ReadingWritingTest: React.FC = () => {
         radius={'xl'}
         centered
         className="[&_.mantine-Modal-content]:p-2 [&_.mantine-Modal-close]:text-primary [&_.mantine-Modal-close]:scale-150 [&_.mantine-Modal-header]:py-0 [&_.mantine-Modal-header]:pt-2"
-        onClose={() => {}}
+        onClose={() => {
+          return;
+        }}
       >
         <p className=" font-bold text-xl text-primary text-center">
           {indexQuestion < listQuestionExam.length - 1
@@ -509,7 +513,9 @@ const ReadingWritingTest: React.FC = () => {
         radius={'xl'}
         centered
         className="[&_.mantine-Modal-content]:p-2 [&_.mantine-Modal-close]:text-primary [&_.mantine-Modal-close]:scale-150 [&_.mantine-Modal-header]:py-0 [&_.mantine-Modal-header]:pt-2"
-        onClose={() => {}}
+        onClose={() => {
+          return;
+        }}
       >
         <p className="font-bold text-xl text-primary text-center">
           Bạn đã hết thời gian làm bài
@@ -544,7 +550,9 @@ const ReadingWritingTest: React.FC = () => {
         centered
         radius={'xl'}
         className="[&_.mantine-Modal-content]:p-2"
-        onClose={() => {}}
+        onClose={() => {
+          return;
+        }}
       >
         <div className="bg-[#FFF8E5] mx-auto rounded-3xl flex items-center p-4 gap-2 w-[212px]">
           <Image src="/images/icon-clock.svg" width={48} height={48} alt="" />

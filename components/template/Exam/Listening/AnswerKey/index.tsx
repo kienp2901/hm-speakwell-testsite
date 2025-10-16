@@ -22,7 +22,6 @@ const AnswerKey = () => {
   const [redoStatus, setRedoStatus] = useState(true);
   
   const pathname = router.asPath;
-  ;
 
   const getHistoryExam = async (idHistory: string) => {
     const response = await getHistoryDetail(idHistory);
@@ -133,7 +132,7 @@ const AnswerKey = () => {
           <div className="flex items-center justify-center mt-6 space-x-3">
             <Button
               onClick={() => {
-                navigate(
+                router.push(
                   `${pathname.replace('/answer-key', '/answer-detail')}`,
                 );
                 sessionStorage.setItem('current-time', '0');

@@ -18,7 +18,6 @@ const Wavesurfer: React.FC<WavesurferProps> = ({ audioFile, play }) => {
         waveColor: '#384C66',
         progressColor: 'red',
         barWidth: 1,
-        responsive: true,
         height: 40,
         cursorColor: 'transparent',
       });

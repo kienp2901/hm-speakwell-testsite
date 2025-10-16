@@ -47,7 +47,7 @@ const YesNoAnswer: React.FC<YesNoAnswerProps> = ({ question }) => {
     setValue(answerId);
 
     const response = await examSaveApi(studentId, {
-      idHistory: idHistory,
+      idHistory: idHistory || undefined,
       listUserAnswer: [listUserAnswerTemp],
     });
     const dataFilter = listUserAnswer.filter(

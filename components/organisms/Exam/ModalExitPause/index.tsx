@@ -15,10 +15,8 @@ type ModalExitPauseProps = {
 };
 
 const ModalExitPause = ({ isOpen, onClose }: ModalExitPauseProps) => {
-  ;
   const dispatch = useDispatch();
   const router = useRouter();
-  const params = router.query;
   
   const pathname = router.asPath;
 
@@ -30,9 +28,7 @@ const ModalExitPause = ({ isOpen, onClose }: ModalExitPauseProps) => {
     if (ele.length > 0) {
       ele[0].setAttribute('src', '');
     }
-    navigate(LocalStorageService.get('historyPath') || '/', {
-      replace: true,
-    });
+    router.push(LocalStorageService.get('historyPath') || '/');
     dispatch(setListUserAnswer([]));
 
     localStorage.removeItem('page');

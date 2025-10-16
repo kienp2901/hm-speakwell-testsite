@@ -43,7 +43,7 @@ const interceptAuth = (config: BaseConfig): AxiosInstance => {
       // Add x-api-key from environment or EMS token
       if (emsToken && emsToken !== '') {
         cf.headers['x-api-key'] = emsToken;
-        console.log('Adding EMS token as x-api-key');
+        // console.log('Adding EMS token as x-api-key');
       } else if (process.env.API_KEY_EXAM) {
         cf.headers['x-api-key'] = process.env.API_KEY_EXAM;
       }
@@ -51,7 +51,7 @@ const interceptAuth = (config: BaseConfig): AxiosInstance => {
       // Add Bearer token if available (from create-user API)
       if (accessToken && accessToken !== '') {
         cf.headers['Authorization'] = `Bearer ${accessToken}`;
-        console.log('Adding Bearer token to request');
+        // console.log('Adding Bearer token to request');
       }
       
       if (dataSignature !== '') {
@@ -62,7 +62,7 @@ const interceptAuth = (config: BaseConfig): AxiosInstance => {
       // Add tenant code if available
       if (tenantCode) {
         cf.headers['x-tenant-code'] = tenantCode;
-        console.log('Adding tenant code to request:', tenantCode);
+        // console.log('Adding tenant code to request:', tenantCode);
       }
     }
     cf.params = cf.params || {};

@@ -1,7 +1,7 @@
 /* eslint-disable prefer-destructuring */
 /* eslint-disable no-loop-func */
 import { CursorType, TestType, questionEnumType } from 'enum';
-import jwt_decode from 'jwt-decode';
+import { jwtDecode } from 'jwt-decode';
 import { setCursorCustom } from 'store/slice/examInfo';
 import { isString } from 'lodash';
 
@@ -15,7 +15,7 @@ export interface decodeJWTType {
 
 export const decodeJWT = (token: string): any => {
   try {
-    return jwt_decode(token);
+    return jwtDecode(token);
   } catch (error) {
     return false;
   }
@@ -329,7 +329,6 @@ export const getIndexQuestion2 = (
   idQuestion?: number,
 ) => {
   let indexQues = 0;
-  let str = '';
   for (let i = 0; i < page; i++) {
     if (i < page) {
       if (listQuestion[i]?.quiz_type === questionEnumType.READING) {
@@ -350,8 +349,8 @@ export const getListUserAnswer = (
   question: any,
   dataFill: any,
 ) => {
-  let listAnswerArr = listUserAnswerState || [];
-  let listUserAnswer: any[] = [...listAnswerArr];
+  const listAnswerArr = listUserAnswerState || [];
+  const listUserAnswer: any[] = [...listAnswerArr];
   const index: any = listUserAnswer.findIndex(
     (i: any) => i.idQuestion === data[page - 1].idQuestion,
   );
@@ -380,7 +379,7 @@ export const getListUserAnswer = (
       const indexChildQS: any = listUserAnswer[index]?.answer?.findIndex(
         (i: any) => i.idChildQuestion === question.idChildQuestion,
       );
-      let listAnswer = [...listAnswerArr[index]?.answer];
+      const listAnswer = [...listAnswerArr[index]?.answer];
       if (indexChildQS === -1) {
         listAnswer.push({
           idChildQuestion: question.idChildQuestion,
@@ -763,7 +762,7 @@ const getContextMenu = (
       ctxMenuElem.style.left = e.clientX + 8 + 'px';
       ctxMenuElem.style.top = e.clientY + 'px';
       const ulElem = document.createElement('ul');
-      let liElemHighlight = document.createElement('li');
+      const liElemHighlight = document.createElement('li');
       const image1 = document.createElement('img');
       image1.setAttribute(
         'src',
@@ -772,7 +771,7 @@ const getContextMenu = (
       liElemHighlight.appendChild(image1);
       liElemHighlight.insertAdjacentText('beforeend', 'Highlight');
 
-      let liElemComment = document.createElement('li');
+      const liElemComment = document.createElement('li');
       const image2 = document.createElement('img');
       image2.setAttribute(
         'src',
@@ -823,7 +822,7 @@ const getMenuClear = (e: any) => {
       ctxMenuElem.style.left = e.clientX + 8 + 'px';
       ctxMenuElem.style.top = e.clientY + 'px';
       const ulElem = document.createElement('ul');
-      let liElemClear = document.createElement('li');
+      const liElemClear = document.createElement('li');
       const image1 = document.createElement('img');
       image1.setAttribute(
         'src',
@@ -832,7 +831,7 @@ const getMenuClear = (e: any) => {
       liElemClear.appendChild(image1);
       liElemClear.insertAdjacentText('beforeend', 'Clear');
 
-      let liElemClearAll = document.createElement('li');
+      const liElemClearAll = document.createElement('li');
       const image2 = document.createElement('img');
       image2.setAttribute(
         'src',
@@ -856,7 +855,7 @@ const getMenuClear = (e: any) => {
         eleClearContexts.forEach((item: any) => {
           if (item.dataset.highlight === e.target.dataset.highlight) {
             if (e.target.classList.contains('btn-comment')) {
-              const eleInput = [...eleInputComment].find(
+              const eleInput = Array.from(eleInputComment).find(
                 (i: any) => i.dataset.highlight === e.target.dataset.highlight,
               );
               eleInput?.remove();

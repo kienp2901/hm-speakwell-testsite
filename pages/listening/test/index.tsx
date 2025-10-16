@@ -151,7 +151,7 @@ const ListeningTest: React.FC = () => {
 
   const onSubmit = async () => {
     const response = await examSubmitApi(studentId, {
-      idHistory: idHistory,
+      idHistory: idHistory as string,
       listUserAnswer: listUserAnswer,
     });
     if (response.data.message === 'OK') {
@@ -165,16 +165,16 @@ const ListeningTest: React.FC = () => {
   };
 
   useEffect(() => {
-    examContinue(studentId, idHistory);
+    examContinue(studentId, idHistory as string);
   }, []);
 
   const handleVisibilityChange = useCallback(() => {
     if (idHistory && document.visibilityState === 'visible') {
-      examContinueApi(studentId, idHistory)
+      examContinueApi(studentId, idHistory as string)
         .then((res) => {
           if (res.status == 200) {
             if (res?.data.status == 200) {
-              var dataExam = res?.data?.metadata;
+              const dataExam = res?.data?.metadata;
               setTimer(dataExam?.timeAllow);
             }
           }
@@ -182,7 +182,9 @@ const ListeningTest: React.FC = () => {
         .catch((err) => {
           console.log(err);
         })
-        .finally(() => {});
+        .finally(() => {
+          return;
+        });
     }
   }, [idHistory, studentId]);
 
@@ -245,7 +247,7 @@ const ListeningTest: React.FC = () => {
     } else if (timer % 10 == 0) {
       if (listUserAnswerDraft?.length > 0) {
         examSaveApi(studentId, {
-          idHistory: idHistory,
+          idHistory: idHistory as string,
           listUserAnswer: [...listUserAnswerDraft],
         }).then((res) => {
           if (res?.status == 200) {
@@ -348,7 +350,9 @@ const ListeningTest: React.FC = () => {
         centered
         radius={'xl'}
         className="[&_.mantine-Modal-content]:p-2"
-        onClose={() => {}}
+        onClose={() => {
+          return;
+        }}
       >
         <div className="bg-[#FFF8E5] mx-auto rounded-3xl flex items-center p-4 gap-2 w-[212px]">
           <Image src="/images/icon-clock.svg" width={48} height={48} alt="" />
@@ -433,7 +437,9 @@ const ListeningTest: React.FC = () => {
         centered
         radius={'xl'}
         className="[&_.mantine-Modal-content]:p-2"
-        onClose={() => {}}
+        onClose={() => {
+          return;
+        }}
       >
         <h2 className="font-bold text-xl text-primary text-center">
           Hết thời gian làm bài Nghe

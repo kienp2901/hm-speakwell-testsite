@@ -409,7 +409,6 @@ const AnswerSpeaking = ({
       <Modal
         centered
         size={'xl'}
-        overflow="inside"
         opened={isOpenModal}
         onClose={onCloseModal}
         classNames={{

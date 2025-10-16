@@ -22,6 +22,9 @@ const Speaking = () => {
 
   const [active, setActive] = useState<number>(0);
 
+  const getLastSegment = (pathname: string) => pathname.split('/').filter(Boolean).pop();
+  const last = getLastSegment(pathname);
+
   useEffect(() => {
     const removeStream = async () => {
       const stream = await navigator.mediaDevices.getUserMedia({
@@ -35,42 +38,55 @@ const Speaking = () => {
 
   return (
     <>
-      <Stepper
-        active={active}
-        onStepClick={setActive}
-        breakpoint="sm"
-        classNames={{
-          steps: 'hidden',
-        }}
-      >
-        <Stepper.Step>
-          <TestSound />
-        </Stepper.Step>
-        <Stepper.Step>
-          <TestRecord />
-        </Stepper.Step>
-        <Stepper.Step>
-          <Info />
-        </Stepper.Step>
-      </Stepper>
-      {active !== 2 ? (
-        <Button
-          onClick={() => setActive(active + 1)}
-          className="mt-10 xl:mt-14 2xl:mt-20 mx-auto"
-        >
-          Continue
-        </Button>
+      {last === 'test' ? (
+        <TestSpeaking />
+      ) : last === 'wait-grading' ? (
+        <WaitGrading />
+      ) : last === 'answer-key' ? (
+        <AnswerKey />
+      ) : last === 'answer-detail' ? (
+        <AnswerDetail />
       ) : (
-        <Button
-          onClick={async () => {
-            router.replace(`${pathname}/test`);
-            dispatch(setListUserAudio([]));
-          }}
-          className="mt-10 xl:mt-14 2xl:mt-20 mx-auto"
-        >
-          Start test
-        </Button>
+        <>
+          <Stepper
+            active={active}
+            onStepClick={setActive}
+            breakpoint="sm"
+            classNames={{
+              steps: 'hidden',
+            }}
+          >
+            <Stepper.Step>
+              <TestSound />
+            </Stepper.Step>
+            <Stepper.Step>
+              <TestRecord />
+            </Stepper.Step>
+            <Stepper.Step>
+              <Info />
+            </Stepper.Step>
+          </Stepper>
+          {active !== 2 ? (
+            <Button
+              onClick={() => setActive(active + 1)}
+              className="mt-10 xl:mt-14 2xl:mt-20 mx-auto"
+            >
+              Continue
+            </Button>
+          ) : (
+            <Button
+              onClick={async () => {
+                router.replace(`${pathname}/test`);
+                dispatch(setListUserAudio([]));
+              }}
+              className="mt-10 xl:mt-14 2xl:mt-20 mx-auto"
+            >
+              Start test
+            </Button>
+          )}
+        </>
       )}
+      
     </>
   );
 };

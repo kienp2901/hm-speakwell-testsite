@@ -26,7 +26,7 @@ ChartJS.register(
 );
 ChartJS.defaults.font.size = 13;
 ChartJS.defaults.font.family = 'Public Sans, sans-serif';
-ChartJS.defaults.font.weight = '500';
+ChartJS.defaults.font.weight = 500;
 ChartJS.defaults.color = '#637381';
 
 const RootStyle = styled('div')(() => ({}));

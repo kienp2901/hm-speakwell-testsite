@@ -1,5 +1,4 @@
 import { CSSProperties, FC } from 'react';
-import { twMerge } from 'tailwind-merge';
 
 type ButtonProps = {
   className?: string;

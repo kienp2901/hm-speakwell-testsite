@@ -12,7 +12,6 @@ const AnswerTaskDetail = () => {
   const router = useRouter();
   const params = router.query;
   const { idHistory, idQuestion } = params;
-  ;
   
   const location = { pathname: router.asPath, state: {} };
 
@@ -62,7 +61,7 @@ const AnswerTaskDetail = () => {
   };
 
   const convertTextToHtml = (text: string) => {
-    let html = text
+    const html = text
       ?.split('\n')
       .map(line => {
         if (line.startsWith('## ')) {
@@ -91,7 +90,7 @@ const AnswerTaskDetail = () => {
       const eleComment = document.getElementsByTagName('comment');
 
       eleComment.length > 0 &&
-        [...eleComment].forEach((item: any) => {
+        Array.from(eleComment).forEach((item: any) => {
           const image = document.createElement('img');
           const contentCmt = document.createElement('div');
           contentCmt.innerHTML = item?.getAttribute('content');
@@ -200,7 +199,7 @@ const AnswerTaskDetail = () => {
           </div>
 
           <div className="mx-6 mt-6 mb-4 text-xl">
-            <p>Candidate's Submission</p>
+            <p>Candidate&apos;s Submission</p>
           </div>
           <div className="bg-white rounded-2xl border border-[#7893B0] p-4 mx-6">
             <p
@@ -362,7 +361,7 @@ const AnswerTaskDetail = () => {
                 <InfoCircle size="32" color="#ff2323" variant="Bold" />
                 <p className="text-sm italic break-words ml-2 flex-1">
                   *The score for your IELTS essay is for reference only and may
-                  not align precisely with official scoring. It's advised to
+                  not align precisely with official scoring. It&apos;s advised to
                   view this assessment as supplementary, and for a comprehensive
                   evaluation, consult qualified IELTS instructors.
                 </p>

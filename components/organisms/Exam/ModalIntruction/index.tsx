@@ -99,14 +99,14 @@ const ModalIntruction = ({
     <>
       <Modal
         opened={isIntruction}
-        onClose={() => {}}
+        onClose={() => {
+          return;
+        }}
         centered
         withCloseButton={false}
-        overlayOpacity={0.85}
-        overlayBlur={3}
         zIndex={1201}
         classNames={{
-          modal: 'p-0 w-full sm:w-[95%] lg::w-[90%] 2xl:w-[75%] ',
+          content: 'p-0 w-full sm:w-[95%] lg::w-[90%] 2xl:w-[75%] ',
         }}
       >
         <Stepper

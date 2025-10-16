@@ -11,7 +11,7 @@ let runtimeTenantCode: string | null = null;
 
 export const setRuntimeTenantCode = (tenantCode: string): void => {
   runtimeTenantCode = tenantCode;
-  console.log('Tenant code set:', tenantCode);
+  // console.log('Tenant code set:', tenantCode);
 };
 
 export const getRuntimeTenantCode = (): string | null => {
@@ -23,9 +23,9 @@ export const fetchTenantDomains = async (): Promise<TenantDomain[] | null> => {
   try {
     const API_BASE = process.env.API_BASE_URL;
     
-    console.log('API_BASE_URL from env:', process.env.API_BASE_URL);
-    console.log('Using API_BASE:', API_BASE);
-    console.log('Fetching tenant domains from:', `${API_BASE}tenant-domains`);
+    // console.log('API_BASE_URL from env:', process.env.API_BASE_URL);
+    // console.log('Using API_BASE:', API_BASE);
+    // console.log('Fetching tenant domains from:', `${API_BASE}tenant-domains`);
     
     const response = await fetch(`${API_BASE}tenant-domains`, {
       method: 'GET',
@@ -41,7 +41,7 @@ export const fetchTenantDomains = async (): Promise<TenantDomain[] | null> => {
     }
     
     const data: TenantDomain[] = await response.json();
-    console.log('Tenant domains response:', data);
+    // console.log('Tenant domains response:', data);
     
     try {
       if (data?.length > 0) {
@@ -55,13 +55,13 @@ export const fetchTenantDomains = async (): Promise<TenantDomain[] | null> => {
         });
         
         const tenantCode = tenantItem?.tenant_code;
-        console.log('Found tenant item:', tenantItem);
-        console.log('Tenant code:', tenantCode);
+        // console.log('Found tenant item:', tenantItem);
+        // console.log('Tenant code:', tenantCode);
         
         if (tenantCode) {
           setRuntimeTenantCode(tenantCode);
           localStorage.setItem('TENANT_DOMAINS', tenantCode);
-          console.log('Tenant code found and set:', tenantCode);
+          // console.log('Tenant code found and set:', tenantCode);
         } else {
           console.log('No matching tenant code found for host:', window.location.host);
         }
@@ -85,9 +85,9 @@ export const fetchTenantDomains = async (): Promise<TenantDomain[] | null> => {
 // Initialize tenant domains on app start
 export const initializeTenantDomains = async (): Promise<void> => {
   try {
-    console.log('Initializing tenant domains...');
+    // console.log('Initializing tenant domains...');
     await fetchTenantDomains();
-    console.log('Tenant domains initialization completed');
+    // console.log('Tenant domains initialization completed');
   } catch (error) {
     console.error('Failed to initialize tenant domains:', error);
   }

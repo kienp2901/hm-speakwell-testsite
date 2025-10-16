@@ -186,8 +186,12 @@ const TestSpeaking = () => {
     audioType: 'audio/mp3',
     audioSrc: audioURL,
     timeslice: 1000, // timeslice（https://developer.mozilla.org/en-US/docs/Web/API/MediaRecorder/start#Parameters）
-    startCallback: (e: any) => {},
-    pauseCallback: (e: any) => {},
+    startCallback: (e: any) => {
+      return;
+    },
+    pauseCallback: (e: any) => {
+      return;
+    },
     stopCallback: (e: any) => {
       setAudioURL(window.URL.createObjectURL(e));
       if (actionQuestion == 'next')
@@ -222,7 +226,9 @@ const TestSpeaking = () => {
         }
       }
     },
-    errorCallback: (err: any) => {},
+    errorCallback: (err: any) => {
+      return;
+    },
     width: 0,
     height: 0,
     backgroundColor: 'white',
@@ -1024,7 +1030,9 @@ const TestSpeaking = () => {
           <div className="hidden lg:flex items-center justify-center">
             <Button
               className="bg-white  hover:bg-ct-primary-500/[.001]"
-              onClick={() => {}}
+              onClick={() => {
+                return;
+              }}
             >
               <img src={recordBtn} alt="" width={200} />
             </Button>
@@ -1152,7 +1160,9 @@ const TestSpeaking = () => {
           ) : (
             <div className="flex items-center justify-center mt-6">
               {timeToThink > 0 ? (
-                <Button className="flex mr-3 " onClick={() => {}}>
+                <Button className="flex mr-3 " onClick={() => {
+                  return;
+                }}>
                   <span className="">
                     Time to think {getTimeCountdown(timeToThink)}
                   </span>
@@ -1211,7 +1221,9 @@ const TestSpeaking = () => {
         removeRecord={confirmNavigation}
         confirmNavigation={confirmOutPage}
         cancelNavigation={cancelNavigation}
-        sideEffectLeave={() => {}}
+        sideEffectLeave={() => {
+          return;
+        }}
       />
       <Modal
         opened={showModalExpired as boolean}
@@ -1220,7 +1232,9 @@ const TestSpeaking = () => {
         centered
         radius={15}
         size={500}
-        onClose={() => {}}
+        onClose={() => {
+          return;
+        }}
       >
         <div className="py-8">
           <p className="text-center">Expiration time! Back to homepage</p>
@@ -1243,7 +1257,9 @@ const TestSpeaking = () => {
         centered
         radius={15}
         size={500}
-        onClose={() => {}}
+        onClose={() => {
+          return;
+        }}
       >
         <div className="py-8 flex items-center justify-center">
           <Loader size="md" />
@@ -1255,9 +1271,11 @@ const TestSpeaking = () => {
         withCloseButton={false}
         closeOnClickOutside={false}
         centered
-        onClose={() => {}}
+        onClose={() => {
+          return;
+        }}
         styles={{
-          modal: {
+          root: {
             backgroundColor: 'transparent',
             boxShadow: 'none',
           },
@@ -1270,7 +1288,9 @@ const TestSpeaking = () => {
         centered
         withCloseButton={false}
         closeOnClickOutside={false}
-        onClose={() => {}}
+        onClose={() => {
+          return;
+        }}
         className="min-w-[360px] z-[1202]"
         size={360}
         radius={'lg'}

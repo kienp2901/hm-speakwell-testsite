@@ -15,7 +15,7 @@ export default function AppBootstrap({ children }: AppBootstrapProps) {
   useEffect(() => {
     const initializeApp = async () => {
       try {
-        console.log('AppBootstrap: Starting initialization...');
+        // console.log('AppBootstrap: Starting initialization...');
         
         // 1. Wait for fetchTenantDomains to complete to ensure tenant code is set
         await initializeTenantDomains();
@@ -26,21 +26,21 @@ export default function AppBootstrap({ children }: AppBootstrapProps) {
         const savedEmsRefreshToken = localStorage.getItem('EMS_REFRESH_TOKEN');
         
         if (savedAccessToken) {
-          console.log('Restoring access token from localStorage');
+          // console.log('Restoring access token from localStorage');
           dispatch(setAccessToken(savedAccessToken));
         }
         
         if (savedEmsToken) {
-          console.log('Restoring EMS token from localStorage');
+          // console.log('Restoring EMS token from localStorage');
           dispatch(setEmsToken(savedEmsToken));
         }
         
         if (savedEmsRefreshToken) {
-          console.log('Restoring EMS refresh token from localStorage');
+          // console.log('Restoring EMS refresh token from localStorage');
           dispatch(setEmsRefreshToken(savedEmsRefreshToken));
         }
         
-        console.log('AppBootstrap: Initialization completed');
+        // console.log('AppBootstrap: Initialization completed');
       } catch (error) {
         // Log error but don't block app rendering
         console.error('[AppBootstrap] initialization failed:', error);

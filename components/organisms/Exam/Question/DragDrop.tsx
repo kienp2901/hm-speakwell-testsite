@@ -7,7 +7,6 @@ import { getIndexQuestion, getListUserAnswer } from '@/utils';
 import { shallowEqual, useDispatch, useSelector } from 'react-redux';
 import { ListUserAnswer } from '@/store/selector';
 import { setListUserAnswer } from '@/store/slice/examInfo';
-import { useRouter } from 'next/router';
 import { postExamPartSave } from '@/service/api/examConfig';
 
 interface DragDropProps {

@@ -22,7 +22,7 @@ const ModalWarning = ({ isOpen, onClose, onStart }: ModalWarningProps) => {
         size={380}
         radius={'lg'}
         classNames={{
-          modal: 'pt-3 pb-6',
+          content: 'pt-3 pb-6',
           header: 'mb-0',
           close:
             'bg-ct-neutral-200 rounded-full text-ct-primary-400 min-w-[24px] min-h-[24px] w-6 h-6 hover:bg-ct-neutral-300',

@@ -645,7 +645,7 @@ const TestReading = () => {
             withCloseButton={false}
             size={'100%'}
             classNames={{
-              drawer: 'overflow-y-auto',
+              content: 'overflow-y-auto',
             }}
           >
             <div className="p-4 pb-8">
@@ -712,7 +712,7 @@ const TestReading = () => {
         onClose={() => {}}
         className="z-[1201]"
         styles={{
-          modal: {
+          root: {
             backgroundColor: 'transparent',
             boxShadow: 'none',
           },

@@ -13,23 +13,18 @@ const WaitGrading = () => {
   const router = useRouter();
   const location = { pathname: router.asPath, state: {} };
   const state = location.state as CustomizedState;
-  ;
   
   const params = router.query;
 
   const cancelSendToExaminer = () => {
-    navigate(`/exam/result/${params?.idExam}/${state.idHistory}`, {
-      replace: true,
-    });
+    router.push(`/exam/result/${params?.idExam}/${state.idHistory}`);
   };
 
   const sendToExaminer = () => {
     sendToExaminerApi(state?.part_history_id)
       .then(res => {
         if (res.status === 200) {
-          navigate(`/exam/result/${params?.idExam}/${state.idHistory}`, {
-            replace: true,
-          });
+          router.push(`/exam/result/${params?.idExam}/${state.idHistory}`);
           notify({
             type: 'success',
             message: 'Send to examiner success!',
@@ -43,7 +38,9 @@ const WaitGrading = () => {
           message: 'Cannot send to examiner',
         });
       })
-      .finally(() => {});
+      .finally(() => {
+        return;
+      });
   };
 
   return (
@@ -68,7 +65,7 @@ const WaitGrading = () => {
           </div>
           <div className="flex items-center justify-center mt-12 space-x-3">
             <Button variant="outline" onClick={cancelSendToExaminer}>
-              No, I don't
+              No, I don&apos;t
             </Button>
             <Button onClick={sendToExaminer}>Yes, I do</Button>
           </div>

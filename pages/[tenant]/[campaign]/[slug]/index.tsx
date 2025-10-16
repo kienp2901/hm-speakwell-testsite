@@ -64,26 +64,26 @@ export default function DynamicTestPage() {
   // Debug info
   useEffect(() => {
     if (router.isReady) {
-      console.log('Dynamic Route Debug:');
-      console.log('Tenant:', tenant);
-      console.log('Campaign:', campaign);
-      console.log('Slug:', slug);
-      console.log('Pathname:', router.pathname);
-      console.log('AsPath:', router.asPath);
-      console.log('StudentId:', studentId);
-      console.log('Active state:', active);
-      console.log('Runtime Tenant Code:', getRuntimeTenantCode());
+      // console.log('Dynamic Route Debug:');
+      // console.log('Tenant:', tenant);
+      // console.log('Campaign:', campaign);
+      // console.log('Slug:', slug);
+      // console.log('Pathname:', router.pathname);
+      // console.log('AsPath:', router.asPath);
+      // console.log('StudentId:', studentId);
+      // console.log('Active state:', active);
+      // console.log('Runtime Tenant Code:', getRuntimeTenantCode());
     }
   }, [router.isReady, tenant, campaign, slug, router.pathname, router.asPath, studentId, active]);
 
   // get Browser Signature
   const getBrowserSignature = async () => {
-    console.log('getBrowserSignature called...');
+    // console.log('getBrowserSignature called...');
     try {
       const response = await getBrowserSignatureApi();
-      console.log('getBrowserSignature response:', response);
+      // console.log('getBrowserSignature response:', response);
       if (response.data?.status === 200) {
-        console.log('Setting data signature...');
+        // console.log('Setting data signature...');
         dispatch(setDataSignature(response.data?.metadata?.signature as string));
       }
     } catch (error) {
@@ -93,20 +93,20 @@ export default function DynamicTestPage() {
 
   // get mocktest - Updated to handle both old and new flows
   const getMocktest = async () => {
-    console.log('getMocktest called - contestType:', contestType, 'idMockContest:', idMockContest);
+    // console.log('getMocktest called - contestType:', contestType, 'idMockContest:', idMockContest);
     
     if (contestType === 14) {
       // OLD FLOW: Redirect to old listening/reading-writing pages
-      console.log('Contest type 14 - Using OLD route');
+      // console.log('Contest type 14 - Using OLD route');
       const targetRoute = indexExam == 0 ? '/listening' : '/reading-writing';
-      console.log('Redirecting to:', targetRoute);
+      // console.log('Redirecting to:', targetRoute);
       router.push(targetRoute);
     } else {
       // NEW FLOW: Call startMockcontestApi and redirect to new test page
-      console.log('Contest type', contestType, '- Using NEW route');
+      // console.log('Contest type', contestType, '- Using NEW route');
       
       if (!mockContestInfo) {
-        console.error('MockContest info not loaded yet');
+        // console.error('MockContest info not loaded yet');
         alert('Đang tải thông tin bài test. Vui lòng thử lại!');
         return;
       }
@@ -117,16 +117,16 @@ export default function DynamicTestPage() {
           idMockContest: Number(idMockContest),
         };
         
-        console.log('Calling startMockcontestApi with:', payload);
+        // console.log('Calling startMockcontestApi with:', payload);
         const response = await startMockcontestApi(payload);
         
-        console.log('startMockcontestApi response:', response);
+        // console.log('startMockcontestApi response:', response);
         
         if (response.data && response.data.data) {
           const { idHistoryContest, mockcontests } = response.data.data;
           
-          console.log('idHistoryContest:', idHistoryContest);
-          console.log('mockcontests:', mockcontests);
+          // console.log('idHistoryContest:', idHistoryContest);
+          // console.log('mockcontests:', mockcontests);
           
           // Save to Redux (similar to lms-ican-hocmai-main)
           dispatch(setListUserAnswer([]));
@@ -140,45 +140,30 @@ export default function DynamicTestPage() {
             submitType: mockcontests.submit_type || 1, // Default submit type
           }));
           
-          console.log('Exam data saved to Redux');
-          
-          // Determine redirect based on contest_type
-          console.log('mockcontests.contest_type:', mockcontests.contest_type);
-          console.log('mockContestInfo:', mockContestInfo);
-          console.log('mockContestInfo.rounds:', mockContestInfo.rounds);
-          
           if (mockcontests.contest_type != 29) {
             // Regular exam flow - redirect to listening/reading/writing/speaking
             if (!mockContestInfo.rounds || mockContestInfo.rounds.length === 0) {
-              console.error('No rounds found in mockContestInfo');
               alert('Không tìm thấy thông tin bài thi. Vui lòng thử lại!');
               return;
             }
             
             const firstRound = mockContestInfo.rounds[0];
-            console.log('First round:', firstRound);
             
             const testFormat = getTestFormat(firstRound.test_format);
             const roundId = firstRound.id;
             
-            console.log('Test format:', testFormat);
-            console.log('Round ID:', roundId);
-            
             // Redirect to exam page with test format
             const newTestRoute = `/${tenant}/${campaign}/${slug}/exam/${testFormat}/${idMockContest}/${roundId}`;
-            console.log('Redirecting to exam page:', newTestRoute);
             router.push(newTestRoute);
           } else {
             // Exercise testing flow (type 29)
             if (!mockContestInfo.rounds || mockContestInfo.rounds.length === 0) {
-              console.error('No rounds found in mockContestInfo');
               alert('Không tìm thấy thông tin bài thi. Vui lòng thử lại!');
               return;
             }
             
             const roundId = mockContestInfo.rounds[0]?.id;
             const exerciseRoute = `/${tenant}/${campaign}/${slug}/exercise/testing/${idMockContest}/${roundId}`;
-            console.log('Redirecting to exercise page:', exerciseRoute);
             router.push(exerciseRoute);
           }
         }
@@ -190,7 +175,7 @@ export default function DynamicTestPage() {
   };
 
   useEffect(() => {
-    console.log('Calling getBrowserSignature...');
+    // console.log('Calling getBrowserSignature...');
     getBrowserSignature();
   }, []);
 
@@ -199,17 +184,17 @@ export default function DynamicTestPage() {
     const fetchInitialData = async () => {
       if (router.isReady && tenant && campaign && slug) {
         try {
-          console.log('Fetching initial data for:', { tenant, campaign, slug });
-          
           // Fetch form config
           const configResponse = await getConfigExamApi(campaign as string, slug as string);
           
           if (configResponse.data) {
-            console.log('Form config response:', configResponse.data);
-            // Filter out deleted items (deleted_at is not null)
-            const validFields = configResponse.data.filter(field => !field.deleted_at);
-            console.log('Valid form fields:', validFields);
-            dispatch(setFormConfig(validFields));
+            if (configResponse.data.length > 0) {
+              // Filter out deleted items (deleted_at is not null)
+              const validFields = configResponse.data.filter(field => !field.deleted_at);
+              dispatch(setFormConfig(validFields));
+            } else {
+              dispatch(setFormConfig([]));
+            }
           }
         } catch (error) {
           console.error('Error fetching initial data:', error);
@@ -227,12 +212,10 @@ export default function DynamicTestPage() {
     const fetchMockContestInfo = async () => {
       if (idMockContest && contestType && contestType !== 14) {
         try {
-          console.log('Fetching mockcontest info for contest type:', contestType);
           const infoResponse = await getMockcontestInfoApi(Number(idMockContest), contestType);
           
           if (infoResponse.data && infoResponse.data.data) {
             const mockContestData = infoResponse.data.data;
-            console.log('Mockcontest info response:', mockContestData);
             
             // Transform rounds data (similar to lms-ican-hocmai-main)
             const transformedData = mockContestData.rounds.map((itemRound: any) => ({
@@ -248,7 +231,6 @@ export default function DynamicTestPage() {
             };
             
             setMockContestInfo(transformedMockContest);
-            console.log('Mockcontest info saved:', transformedMockContest);
           }
         } catch (error) {
           console.error('Error fetching mockcontest info:', error);
@@ -260,15 +242,12 @@ export default function DynamicTestPage() {
   }, [idMockContest, contestType]);
 
   useEffect(() => {
-    console.log('Active useEffect triggered - active:', active, 'studentId:', studentId, 'contestType:', contestType);
-    
     if (active == 2 && studentId) {
       setLoading(true);
       
       // Check contest_type to determine which flow to use
       if (contestType === 14) {
         // OLD FLOW: contest_type = 14
-        console.log('Contest type 14 detected - Using OLD flow (getMocktestApi -> sessionStartApi -> sessionHistoryApi)');
         
         getMocktestApi(studentId).then(async (response: any) => {
           if (response.data.message === 'OK') {
@@ -333,10 +312,7 @@ export default function DynamicTestPage() {
         });
       } else {
         // NEW FLOW: contest_type != 14
-        console.log('Contest type', contestType, 'detected - Using NEW flow (getMockcontestInfoApi -> getMockcontestHistoryApi)');
-        
         getMockcontestInfoApi(Number(idMockContest), contestType as number).then(async (infoResponse: any) => {
-          console.log('getMockcontestInfoApi response:', infoResponse);
           
           if (infoResponse.data) {
             // Get history
@@ -346,15 +322,10 @@ export default function DynamicTestPage() {
             };
             
             const historyResponse = await getMockcontestHistoryApi(historyParams);
-            console.log('getMockcontestHistoryApi response:', historyResponse);
             
             if (historyResponse.data) {
               // Process history data similar to old flow
               const historyData = historyResponse.data;
-              
-              // TODO: Process history data and set appropriate state
-              // For now, just navigate to test
-              console.log('History data received, proceeding to test...');
               
               setLoading(false);
             }

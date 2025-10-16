@@ -58,7 +58,7 @@ const DragDropQuestion: React.FC<DragDropQuestionProps> = ({ text, data }) => {
       idQuestion: idQuestion,
     };
     const response = examSaveApi(studentId, {
-      idHistory: idHistory,
+      idHistory: idHistory || undefined,
       listUserAnswer: [listUserAnswerTemp],
     }).then((res) => {});
     const dataFilter = dataAnswerDraft.filter(
@@ -134,7 +134,7 @@ const DragDropQuestion: React.FC<DragDropQuestionProps> = ({ text, data }) => {
       );
       if (idChildQuestion) {
         if (answerChild) {
-          let newListDrag = [...listAnswerDragFake];
+          const newListDrag = [...listAnswerDragFake];
           answerChild?.answer?.map((itemChild: any, index: number) => {
             const node = document.getElementById(
               `fill${idQuestion}${idChildQuestion ?? ''}${index}`,
@@ -164,7 +164,7 @@ const DragDropQuestion: React.FC<DragDropQuestionProps> = ({ text, data }) => {
           });
         }
       } else {
-        let newListDrag = [...listAnswerDragFake];
+        const newListDrag = [...listAnswerDragFake];
         answerDraft?.answer?.map((item: any, index: number) => {
           const node = document.getElementById(
             `fill${idQuestion}${idChildQuestion ?? ''}${index}`,
@@ -195,7 +195,7 @@ const DragDropQuestion: React.FC<DragDropQuestionProps> = ({ text, data }) => {
     }
   }, [content, dataAnswerDraft, idQuestion, idChildQuestion, listAnswerDragFake]);
 
-  var dragP: any;
+  let dragP: any;
   /* Events fired on the drag target */
 
   document.addEventListener('dragstart', function (event: any) {

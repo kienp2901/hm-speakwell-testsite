@@ -10,7 +10,8 @@ const nextConfig = {
     BASE_URL: process.env.BASE_URL,
     API_KEY_EXAM: process.env.API_KEY_EXAM,
     API_BASE_URL: process.env.API_BASE_URL,
-    API_EMS_KEY: process.env.API_EMS_KEY
+    // API_EMS_KEY: process.env.API_EMS_KEY,
+    API_URL_ADMIN: process.env.API_URL_ADMIN
   },
   images: {
     remotePatterns: [

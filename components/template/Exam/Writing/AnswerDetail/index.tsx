@@ -22,7 +22,6 @@ interface CustomizedState {
 const AnswerDetail = () => {
   const id = uuid();
 
-  ;
   const router = useRouter();
   const location = { pathname: router.asPath, state: {} };
   const state = location.state as CustomizedState;
@@ -73,10 +72,10 @@ const AnswerDetail = () => {
         setListQuestion(res?.data?.data?.listQuestion);
         setListAnswer(res?.data?.data?.listQuestionGraded);
         setMetadataRound(res?.data?.data);
-        let listAnswerUser = res?.data?.data?.listQuestionGraded;
-        let listQuestions = res?.data?.data?.listQuestion;
+        const listAnswerUser = res?.data?.data?.listQuestionGraded;
+        const listQuestions = res?.data?.data?.listQuestion;
 
-        let indexAnswer = listAnswerUser?.findIndex(
+        const indexAnswer = listAnswerUser?.findIndex(
           (item: any) => item?.idQuestion == listQuestions[0]?.idQuestion,
         );
         setValueInput(listAnswerUser[indexAnswer]?.userAnswer);
@@ -98,10 +97,10 @@ const AnswerDetail = () => {
         setListQuestion(res?.data?.metadata?.questions);
         setListAnswer(res?.data?.metadata?.graded);
         setMetadataRound(res?.data?.metadata);
-        let listAnswerUser = res?.data?.metadata?.graded;
-        let listQuestions = res?.data?.metadata?.questions;
+        const listAnswerUser = res?.data?.metadata?.graded;
+        const listQuestions = res?.data?.metadata?.questions;
 
-        let indexAnswer = listAnswerUser?.findIndex(
+        const indexAnswer = listAnswerUser?.findIndex(
           (item: any) => item?.idQuestion == listQuestions[0]?.idQuestion,
         );
         setValueInput(listAnswerUser[indexAnswer]?.userAnswer);
@@ -130,22 +129,29 @@ const AnswerDetail = () => {
       <div className="flex items-center space-x-2 sm:space-x-4 text-ct-primary-500">
         <span>{'Task'}</span>
         <Pagination
-          page={page}
+          key={`pagination-${page}`}
+          defaultValue={page}
           total={listQuestion?.length}
           withControls={false}
           noWrap
           className="!gap-0 space-x-2"
-          classNames={{
-            item: 'bg-white min-w-[24px] h-6 w-6 lg:min-w-[32px] lg:h-8 lg:w-8',
-          }}
-          styles={() => ({
-            item: {
-              '&[data-active]': {
-                backgroundColor: '#FF3BAF !important',
+          sx={{
+            '& button[data-active]': {
+              backgroundColor: '#FF3BAF !important',
+            },
+            '& button': {
+              backgroundColor: 'white',
+              minWidth: '24px',
+              height: '24px',
+              width: '24px',
+              '@media (min-width: 1024px)': {
+                minWidth: '32px',
+                height: '32px',
+                width: '32px',
               },
             },
-          })}
-          onChange={page => onCLickSelectPage(page)}
+          }}
+          onChange={(newPage: number) => onCLickSelectPage(newPage)}
         />
       </div>
     );
@@ -153,7 +159,7 @@ const AnswerDetail = () => {
 
   const onClickPrevQuestion = () => {
     setPage(page - 1);
-    let indexAnswer = listAnswerUser.findIndex(
+    const indexAnswer = listAnswerUser.findIndex(
       (item: any) => item.idQuestion == listQuestion[page - 2]?.idQuestion,
     );
     if (indexAnswer === -1) {
@@ -166,7 +172,7 @@ const AnswerDetail = () => {
   const onClickNextQuestion = () => {
     setPage(page + 1);
 
-    let indexAnswer = listAnswerUser.findIndex(
+    const indexAnswer = listAnswerUser.findIndex(
       (item: any) => item.idQuestion == listQuestion[page]?.idQuestion,
     );
     if (indexAnswer === -1) {
@@ -178,7 +184,7 @@ const AnswerDetail = () => {
 
   const onCLickSelectPage = (pageNum: number) => {
     setPage(pageNum);
-    let indexAnswer = listAnswerUser.findIndex(
+    const indexAnswer = listAnswerUser.findIndex(
       (item: any) => item.idQuestion == listQuestion[pageNum - 1]?.idQuestion,
     );
     if (indexAnswer === -1) {
@@ -328,7 +334,7 @@ const AnswerDetail = () => {
             withCloseButton={false}
             size={'100%'}
             classNames={{
-              drawer: 'overflow-y-auto',
+              content: 'overflow-y-auto',
             }}
           >
             <div className="px-2 pt-4 sm:p-4 pb-8">

@@ -177,9 +177,6 @@ const MultiChoiceOneRight = ({
           <Radio.Group
             value={value}
             onChange={handleChange}
-            orientation="vertical"
-            spacing="sm"
-            offset="md"
           >
             {question.listSelectOptions.map((item: any, index: any) => (
               <Radio

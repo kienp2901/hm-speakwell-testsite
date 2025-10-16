@@ -144,17 +144,17 @@ const HeaderTest = ({
         router.replace(`${location?.pathname.replace('/test', '/answer-key')}`);
       } else if (location?.pathname.includes('/exam/listening')) {
         const idRound = examInfo?.rounds?.find(
-          (item: any) => item.test_format === TestType.Reading,
+          (item: { test_format: number }) => item.test_format === TestType.Reading,
         )?.id;
         router.replace(`/${params.tenant}/${params.campaign}/${params.slug}/exam/reading/${params.idExam}/${idRound}`);
       } else if (location?.pathname.includes('/exam/reading')) {
         const idRound = examInfo?.rounds?.find(
-          (item: any) => item.test_format === TestType.Writing,
+          (item: { test_format: number }) => item.test_format === TestType.Writing,
         )?.id;
         router.replace(`/${params.tenant}/${params.campaign}/${params.slug}/exam/writing/${params.idExam}/${idRound}`);
       } else if (location?.pathname.includes('/exam/writing')) {
         const idRound = examInfo?.rounds?.find(
-          (item: any) => item.test_format === TestType.Speaking,
+          (item: { test_format: number }) => item.test_format === TestType.Speaking,
         )?.id;
         router.replace(`/${params.tenant}/${params.campaign}/${params.slug}/exam/speaking/${params.idExam}/${idRound}`);
       } else if (location?.pathname.includes('/exam/speaking')) {
@@ -172,7 +172,7 @@ const HeaderTest = ({
     localStorage.removeItem('index-current');
     if (location?.pathname.includes('/exam')) {
       const idRound = metadata?.rounds?.find(
-        (item: any) => item.test_format === TestType.Listening,
+        (item: { test_format: number }) => item.test_format === TestType.Listening,
       )?.round_id;
       router.push(`/${params.tenant}/${params.campaign}/${params.slug}/exam/listening/${params.idExam}/${idRound}`);
     } else if (location?.pathname.includes('/answer-detail')) {

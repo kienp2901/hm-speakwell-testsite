@@ -1,7 +1,7 @@
 /* eslint-disable prefer-const */
 import React, { useEffect, useMemo, useState } from 'react';
 import MathJaxRender from '@/components/sharedV2/MathJax';
-import { Divider, Select } from '@mantine/core';
+import { Divider } from '@mantine/core';
 import { getIndexQuestion, getIndexQuestion2, getListUserAnswer } from '@/utils';
 import { shallowEqual, useDispatch, useSelector } from 'react-redux';
 import { ListUserAnswer } from '@/store/selector';

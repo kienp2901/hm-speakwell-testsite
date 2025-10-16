@@ -669,7 +669,7 @@ const TestWriting = () => {
             withCloseButton={false}
             size={'100%'}
             classNames={{
-              drawer: 'overflow-y-auto',
+              content: 'overflow-y-auto',
             }}
           >
             <div className="px-2 pt-4 sm:p-4 pb-8">
@@ -769,7 +769,9 @@ const TestWriting = () => {
         showDialog={showPrompt}
         confirmNavigation={confirmNavigation}
         cancelNavigation={cancelNavigation}
-        sideEffectLeave={() => {}}
+        sideEffectLeave={() => {
+          return;
+        }}
       />
       <Modal
         opened={showModalSubmitExam as boolean}
@@ -777,7 +779,9 @@ const TestWriting = () => {
         centered
         size={360}
         radius={'lg'}
-        onClose={() => {}}
+        onClose={() => {
+          return;
+        }}
       >
         <div className="py-8">
           <p className="text-center">
@@ -808,7 +812,9 @@ const TestWriting = () => {
         centered
         radius={15}
         size={500}
-        onClose={() => {}}
+        onClose={() => {
+          return;
+        }}
       >
         <div className="py-8">
           <p className="text-center">Expiration time! Back to homepage</p>
@@ -829,10 +835,12 @@ const TestWriting = () => {
         withCloseButton={false}
         closeOnClickOutside={false}
         centered
-        onClose={() => {}}
+        onClose={() => {
+          return;
+        }}
         zIndex={1201}
         styles={{
-          modal: {
+          root: {
             backgroundColor: 'transparent',
             boxShadow: 'none',
           },
@@ -845,7 +853,9 @@ const TestWriting = () => {
         centered
         withCloseButton={false}
         closeOnClickOutside={false}
-        onClose={() => {}}
+        onClose={() => {
+          return;
+        }}
         className="min-w-[360px] z-[1202]"
         size={360}
         radius={'lg'}
@@ -876,7 +886,9 @@ const TestWriting = () => {
         centered
         withCloseButton={false}
         closeOnClickOutside={false}
-        onClose={() => {}}
+        onClose={() => {
+          return;
+        }}
         className="min-w-[360px] z-[1202]"
         size={360}
         radius={'lg'}

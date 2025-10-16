@@ -29,7 +29,7 @@ const TestRecord = () => {
   `;
 
   const [audioURL, isRecording, startRecording, stopRecording, deleteData] =
-    useRecorder();
+    useRecorder() as [string, boolean, () => void, () => void, () => void];
 
   const record = () => {
     if (recorder) {

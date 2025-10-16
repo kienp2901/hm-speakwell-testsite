@@ -20,8 +20,6 @@ const AnswerGradle = () => {
   const location = { pathname: router.asPath, state: {} };
   const state = location.state as CustomizedState;
 
-  ;
-
   const [isOpenSaveModal, setOpenSaveModal] = useState(false);
   const [isOpenSendTeacherModal, setOpenSendTeacherModal] = useState(false);
   const [historyWriting, setHistoryWriting] = useState<any>({});
@@ -76,11 +74,8 @@ const AnswerGradle = () => {
               <Button
                 variant="outline"
                 onClick={() => {
-                  navigate(
+                  router.push(
                     `${location.pathname.replace('/wait-grading', '')}`,
-                    {
-                      replace: true,
-                    },
                   );
                 }}
               >
@@ -89,7 +84,7 @@ const AnswerGradle = () => {
             )}
             <Button
               onClick={() => {
-                router.replace('/');
+                router.push('/');
               }}
             >
               Exit

@@ -408,7 +408,7 @@ const AnswerKey = () => {
             <InfoCircle size="32" color="#ff2323" variant="Bold" />
             <p className="text-sm italic break-words ml-2 flex-1">
               *The score given by the AI examiner is just for reference and may
-              not match the official score. For an accurate assessment, it's
+              not match the official score. For an accurate assessment, it&apos;s
               best to consult qualified IELTS teachers.
             </p>
           </div>

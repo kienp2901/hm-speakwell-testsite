@@ -2,7 +2,6 @@ import { Modal } from '@mantine/core';
 import Button from '@/components/sharedV2/Button';
 import { shallowEqual, useDispatch, useSelector } from 'react-redux';
 import { useRouter } from 'next/router';
-import { LocalStorageService } from '@/services';
 import { postExamPartStopApi } from '@/service/api/examConfig';
 import { IdHistoryContest } from '@/store/selector';
 import { setListUserAnswer } from '@/store/slice/examInfo';

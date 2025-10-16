@@ -1,8 +1,6 @@
 import { memo, useEffect } from 'react';
 import { v4 as uuid } from 'uuid';
 
-import styles from './style.module.css';
-
 type Props = {
   math?: string | any;
   styletext?: string;
@@ -12,9 +10,11 @@ type Props = {
 const MathJaxRender = ({ math, styletext, className }: Props) => {
   const id = uuid();
   useEffect(() => {
-    if (window.MathJax) {
+    if (window.MathJax && window.MathJax.typesetPromise) {
       const node = document.getElementById(`${id}`);
-      window.MathJax.typesetPromise([node]);
+      if (node) {
+        window.MathJax.typesetPromise([node]);
+      }
     }
   }, [math]);
 

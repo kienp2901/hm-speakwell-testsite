@@ -137,9 +137,7 @@ export const getConfigExamApi = async (
 export const createUserApi = async (
   formData: CreateUserFormData
 ): Promise<CreateUserResponse> => {
-  console.log('createUserApi called with:', formData);
   const response = await instance.post<CreateUserResponse['data']>(`create-user`, formData);
-  console.log('createUserApi response:', response);
   return response as CreateUserResponse;
 };
 
@@ -147,11 +145,9 @@ export const createUserApi = async (
 export const validateTokenApi = async (
   accessToken: string
 ): Promise<ValidateTokenResponse> => {
-  console.log('validateTokenApi called with token:', accessToken?.substring(0, 20) + '...');
   const response = await instance.get<ValidateTokenResponse['data']>(
     `fe/ems/v1/auth/sso/lmsnew_testsite/validate_token`
   );
-  console.log('validateTokenApi response:', response);
   return response as ValidateTokenResponse;
 };
 
@@ -178,12 +174,10 @@ export const getMockcontestHistoryApi = async (
 export const startMockcontestApi = async (
   params: StartMockContestParams
 ): Promise<StartMockContestResponse> => {
-  console.log('startMockcontestApi called with:', params);
   const response = await instance.post<StartMockContestResponse['data']>(
     `fe/ems/v1/lmsnew_testsite/mockcontest/session/start`,
     params
   );
-  console.log('startMockcontestApi response:', response);
   return response as StartMockContestResponse;
 };
 
@@ -193,7 +187,6 @@ export const postExamPartStartApi = async (
   idHistoryContest: string,
   contest_type: number
 ): Promise<ExamPartStartResponse> => {
-  console.log('postExamPartStartApi called with:', { idBaikiemtra, idHistoryContest, contest_type });
   const response = await instance.post(
     `fe/ems/v1/exam/start`,
     {
@@ -202,7 +195,6 @@ export const postExamPartStartApi = async (
       contest_type,
     }
   );
-  console.log('postExamPartStartApi response:', response);
   return response as ExamPartStartResponse;
 };
 
@@ -211,12 +203,10 @@ export const postExamPartContinueApi = async (
   idHistory: string | number,
   contest_type: number
 ): Promise<ExamPartContinueResponse> => {
-  console.log('postExamPartContinueApi called with:', { idHistory, contest_type });
   const response = await instance.post(
     `fe/ems/v1/exam/continue`,
     { idHistory, contest_type }
   );
-  console.log('postExamPartContinueApi response:', response);
   return response as ExamPartContinueResponse;
 };
 
@@ -224,29 +214,24 @@ export const postExamPartContinueApi = async (
 export const postExamPartSubmit = async (
   params: ExamPartSubmitParams
 ): Promise<ExamPartSubmitResponse> => {
-  console.log('postExamPartSubmit called with:', params);
   const response = await instance.post(`fe/ems/v1/lmsnew_testsite/exam/submit`, params);
-  console.log('postExamPartSubmit response:', response);
   return response as ExamPartSubmitResponse;
 };
 
 // Save exam progress
 export const postExamPartSave = async (params: any): Promise<any> => {
-  console.log('postExamPartSave called with:', params);
   const response = await instance.post(`fe/ems/v1/exam/save`, params);
   return response;
 };
 
 // Pause exam
 export const postExamPartPause = async (params: any): Promise<any> => {
-  console.log('postExamPartPause called with:', params);
   const response = await instance.post(`fe/ems/v1/exam/pause`, params);
   return response;
 };
 
 // Stop exam
 export const postExamPartStopApi = async (idHistoryContest: string): Promise<any> => {
-  console.log('postExamPartStopApi called with:', idHistoryContest);
   const response = await instance.post(`fe/ems/v1/lmsnew1/mockcontest/session/stop`, {
     idHistoryContest,
   });
@@ -255,7 +240,6 @@ export const postExamPartStopApi = async (idHistoryContest: string): Promise<any
 
 // Upload audio file for Speaking questions
 export const uploadAudioFileApi = async (params: any): Promise<any> => {
-  console.log('uploadAudioFileApi called with:', params);
   const response = await instance.post(`fe/ems/v1/exam/save/audioLcat/base64`, params);
   return response;
 };

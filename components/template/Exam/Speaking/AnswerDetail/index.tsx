@@ -1,6 +1,5 @@
 /* eslint-disable no-nested-ternary */
 /* eslint-disable camelcase */
-import { Button, HoverCard } from '@mantine/core';
 import { Accordion, AccordionDetails, AccordionSummary } from '@mui/material';
 import Discussion from '@/components/organisms/Exam/AnswerDetail/Discussion';
 import Interview from '@/components/organisms/Exam/AnswerDetail/Interview';
@@ -8,13 +7,9 @@ import HeaderTest from '@/components/organisms/Exam/HeaderTest';
 import { TestType } from '@/enum';
 import { ArrowDown2 } from 'iconsax-react';
 const Person = '/images/Person.svg';
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
-import {
-  getHistoryDetail,
-  getHistoryPartDetail,
-  sendToExaminerApi,
-} from '@/service/api/examConfig';
+import { getHistoryDetail } from '@/service/api/examConfig';
 import { notify } from '@/utils/notify';
 
 const AnswerDetail = () => {
@@ -23,7 +18,6 @@ const AnswerDetail = () => {
   const { idHistory } = params;
   
   const pathname = router.asPath;
-  ;
   const [metadataAnswer, setMetadatAnswer] = useState<any>();
   const [listQuestion, setListQuestion] = useState<any>([]);
   const [listUserAnswer, setListUserAnswer] = useState<any>([]);

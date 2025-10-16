@@ -23,6 +23,10 @@ import '../components/template/Exam/Speaking/TestSpeaking/style.css';
 import '../components/template/Exam/Speaking/AnswerDetail/style.css';
 import '../components/template/Exam/Writing/AnswerTaskDetail/style.css';
 import '../components/template/Exam/Writing/style.css';
+import '../components/sharedV2/MathJax/style.css';
+import '../components/sharedV2/Table/style.css';
+import '../components/sharedV2/Loading/style.css';
+import '../components/sharedV2/Ckeditor/style.css';
 import { AppProps } from 'next/app';
 import '../i18n'; // Initialize i18n
 

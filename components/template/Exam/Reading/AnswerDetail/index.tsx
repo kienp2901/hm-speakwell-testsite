@@ -326,22 +326,29 @@ const AnswerDetail = () => {
       <div className="flex items-center space-x-2 sm:space-x-4 text-ct-primary-500">
         <span>{'Passage'}</span>
         <Pagination
-          page={page}
+          key={`pagination-${page}`}
+          defaultValue={page}
           total={listQuestion?.length}
           withControls={false}
           className="!gap-0 space-x-2"
-          classNames={{
-            item: 'bg-white min-w-[24px] h-6 w-6 lg:min-w-[32px] lg:h-8 lg:w-8',
-          }}
-          styles={() => ({
-            item: {
-              '&[data-active]': {
-                backgroundColor: '#FF3BAF !important',
+          sx={{
+            '& button[data-active]': {
+              backgroundColor: '#FF3BAF !important',
+            },
+            '& button': {
+              backgroundColor: 'white',
+              minWidth: '24px',
+              height: '24px',
+              width: '24px',
+              '@media (min-width: 1024px)': {
+                minWidth: '32px',
+                height: '32px',
+                width: '32px',
               },
             },
-          })}
-          onChange={(page: number) => {
-            setPage(page);
+          }}
+          onChange={(newPage: number) => {
+            setPage(newPage);
             leftRef.current.scrollTop = 0;
             rightRef.current.scrollTop = 0;
           }}
@@ -484,7 +491,7 @@ const AnswerDetail = () => {
             withCloseButton={false}
             size={'100%'}
             classNames={{
-              drawer: 'overflow-y-auto',
+              content: 'overflow-y-auto',
             }}
           >
             <div className="p-4 pb-8">

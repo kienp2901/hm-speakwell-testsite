@@ -2,9 +2,19 @@
 import { useEffect, useState } from 'react';
 import { CKEditor } from '@ckeditor/ckeditor5-react';
 import ClassicEditor from 'ckeditor5-anhnk';
-import { EditorProps } from '@/types';
+interface EditorProps {
+  handleContent: (content: string) => void;
+  label?: string;
+  placeholder?: string;
+  contentQuestion?: string;
+  error?: boolean;
+  required?: boolean;
+  showOnly?: boolean;
+  className?: string;
+  disableItem?: string[];
+}
 import { notify } from '@/utils/notify';
-import { apiUploadFile } from '@/services/api/fileApi';
+import { apiUploadFile } from '@/service/api/fileApi';
 
 import 'ckeditor5-classic-with-mathtype/build/translations/vi.js';
 

@@ -18,6 +18,9 @@ const Reading = () => {
 
   const [isModalWarning, setIsModalWarning] = useState<boolean>(false);
 
+  const getLastSegment = (pathname: string) => pathname.split('/').filter(Boolean).pop();
+  const last = getLastSegment(pathname);
+
   // const getExamPartStart = async (idExam: number, idRound: number) => {
   //   const response = await postExamPartStartApi(idExam, idRound);
   //   if (response.status === 200) {
@@ -32,23 +35,33 @@ const Reading = () => {
 
   return (
     <>
-      <Info />
-      <Button
-        className="mt-10 xl:mt-14 2xl:mt-20 mx-auto"
-        onClick={() => {
-          if (
-            navigator.userAgent.match(/iPad/i) ||
-            navigator.userAgent.match(/iPhone/i) ||
-            navigator.userAgent.match(/Android/i)
-          ) {
-            setIsModalWarning(true);
-          } else {
-            onStartTest();
-          }
-        }}
-      >
-        Start test
-      </Button>
+      {last === 'test' ? (
+        <TestReading />
+      ) : last === 'answer-key' ? (
+        <AnswerKey />
+      ) : last === 'answer-detail' ? (
+        <AnswerDetail />
+      ) : (
+        <>
+          <Info />
+          <Button
+            className="mt-10 xl:mt-14 2xl:mt-20 mx-auto"
+            onClick={() => {
+              if (
+                navigator.userAgent.match(/iPad/i) ||
+                navigator.userAgent.match(/iPhone/i) ||
+                navigator.userAgent.match(/Android/i)
+              ) {
+                setIsModalWarning(true);
+              } else {
+                onStartTest();
+              }
+            }}
+          >
+            Start test
+          </Button>
+        </>
+      )}
 
       {(navigator.userAgent.match(/iPad/i) ||
         navigator.userAgent.match(/iPhone/i) ||
